@@ -1,6 +1,6 @@
 theme: jekyll-theme-midnight
 title: Basic Data Structures
-description:
+description: My Take on UCSD's Basic Data Structures course (CSE 12)
 plugins:
   - jekyll-relative-links
   - jekyll-seo-tag
