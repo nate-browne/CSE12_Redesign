@@ -1,4 +1,4 @@
-[Assignments](assignments.md) • [Schedule](schedule.md) • [Lectures](lectures.md) • [Staff](staff.md)
+[Assignments](assignments.md) • [Schedule](schedule.md) • [Lectures Notes](lectures.md) • [Staff](staff.md)
 
 ## Overview
 Welcome! This course aims to provide a broad overview into the basic data structures
@@ -10,7 +10,7 @@ a solid base on which new skills can be formed.
 
 ## Grading Breakdown
 
-**Programming Assignments (35%)**: There will be 8 programming assignments of varying length and difficulty.
+**Programming Assignments (35%)**: There will be 7 programming assignments of varying length and difficulty.
 Turnin instructions will be posted with the assignments. Do note that you have a _total_ of **4 late days**
 that can be used as needed throughout the quarter, with one late day defined as turning in the assignment anywhere from
 1 second to 23 hours, 59 minutes, and 59 seconds past the deadline.
