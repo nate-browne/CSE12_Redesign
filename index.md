@@ -1,5 +1,7 @@
 [Assignments](assignments.md) • [Schedule](schedule.md) • [Lectures Notes](lectures.md) • [Staff](staff.md)
 
+![fibonacci heap](images/fibheap.png)
+
 ## Overview
 Welcome! This course aims to provide a broad overview into the basic data structures
 that are a crucial part to the development of computer science fundamentals. We will

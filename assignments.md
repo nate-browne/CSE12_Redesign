@@ -1,5 +1,7 @@
 # Assignments
 
+![red black tree](images/redblack.png)
+
 Assignment Title | Link
 :---: | :---:
 Intro to C++ and Java | [Link](https://github.com/nate-browne/CSE12_Redesign/tree/master/PAs/PA1)

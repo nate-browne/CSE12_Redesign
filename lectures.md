@@ -1,5 +1,7 @@
 # Lectures
 
+![skip list](images/skiplist.png)
+
 Date | Topic | Notes
 :---: | :---: | :---:
 TBD | Intro, C++, and Java | [link](./Lectures/intro.md)
