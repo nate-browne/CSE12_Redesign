@@ -13,11 +13,10 @@ system though; just space stuff out more.
 All are able to modify this and adapt it as you see fit (open source FTW), just
 give me credit please and thanks.
 
-### Course Details
-*Coming soon!*
-
 ### Required Materials
-*Coming soon!*
+1. Java 8 or later
+2. Either `clang++` or `g++`
+3. Valgrind and GDB, or other debugging tools
 
 ### Recommended Materials
 *Coming soon!*
