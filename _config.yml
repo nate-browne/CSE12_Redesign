@@ -1,5 +1,5 @@
 theme: jekyll-theme-midnight
-title: Nate's CSE 12
+title: Basic Data Structures
 description:
 plugins:
   - jekyll-relative-links

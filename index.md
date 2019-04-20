@@ -1,5 +1,3 @@
-# Basic Data Structures
-
 [Assignments](assignments.md) • [Schedule](schedule.md) • [Lectures](lectures.md) • [Staff](staff.md)
 
 ## Overview
@@ -25,3 +23,10 @@ whichever is highest:
 3. drop one midterm + midterm (15%) + final (50%)
 
 **Piazza (5%)**: Extra credit awarded to top-20 best contributers, as determined by the team.
+
+## Resources
+
+* [Data Structure Visualizations](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
+* [_Algorithms_, by Dasgupta, Papadimitriou, and Vazirani](http://algorithmics.lsi.upc.edu/docs/Dasgupta-Papadimitriou-Vazirani.pdf)
+* [_Data Structures and Algorithm Analysis in C++_, by Mark Allen Weiss](http://iips.icci.edu.iq/images/exam/DataStructuresAndAlgorithmAnalysisInCpp_2014.pdf)
+* [_Data Structures and Algorithm Analysis in Java_, by Mark Allen Weiss](http://degas.en.kku.ac.th/courses/198232/book/Data%20Structures%20and%20Algorithm%20Analysis%20in%20Java,%203rd%20Edition.pdf)
