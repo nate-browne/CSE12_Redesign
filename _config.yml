@@ -1,4 +1,6 @@
 theme: jekyll-theme-midnight
+title: Nate's CSE 12
+description:
 plugins:
   - jekyll-relative-links
 relative_links:
