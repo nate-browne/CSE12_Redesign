@@ -3,6 +3,7 @@ title: Basic Data Structures
 description:
 plugins:
   - jekyll-relative-links
+  - jekyll-seo-tag
 relative_links:
   enabled: true
   collections: true
