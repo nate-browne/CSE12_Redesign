@@ -4,8 +4,8 @@
 
 Date | Topic | Notes
 :---: | :---: | :---:
-TBD | Intro, C++, and Java | [link](./Lectures/intro.md)
-TBD | Basic Runtime Analysis | [link](./Lectures/runtime.md)
+TBD | Intro, C++, and Basic Runtime analysis | [link](./Lectures/intro.md)
+TBD | contd |
 TBD | ArrayLists and Vectors | [link](./Lectures/arraylists_vectors.md)
 TBD | contd. |
 TBD | Stack and Queues | [link](./Lectures/stacks_queues.md)
