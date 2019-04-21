@@ -2,7 +2,7 @@
 
 ### Who am I?
 
-![Photo of Instructor](https://s3.amazonaws.com/images.seroundtable.com/t-google-404-1303660172.jpg){.align-center width=25%}
+![Photo of Instructor](https://s3.amazonaws.com/images.seroundtable.com/t-google-404-1303660172.jpg)
 * Put information about yourself (the instructor) here
 * Maybe info about where your degrees are from
 * Or what you've taught before
@@ -28,15 +28,15 @@ computer scientists and programmers.
 
 Some advice:
 * This class is a **lot** of work.
-..* It is fast paced and will keep you quite busy. 
+ - It is fast paced and will keep you quite busy. 
 * We're all here to help though!
 
 #### What is CSE 12 _not_ about?
 * This class is not a "how to pass a technical interview" class.
-..* The information will be helpful for those, but it is not strictly the purpose.
+ - The information will be helpful for those, but it is not strictly the purpose.
 * This class isn't about the proofs of why these data structures work.
-..* We will talk a little bit about the math, but not a ton.
-..* The details will be CSE 21 and CSE 101 ;)
+ - We will talk a little bit about the math, but not a ton.
+ - The details will be CSE 21 and CSE 101 ;)
 
 ### Introduction to C++ (from a Java perspective)
 
@@ -45,11 +45,11 @@ Some advice:
 able to hit the ground running with these assignments.
 
 * C++ is a procedural, functional, object-oriented, statically typed programming language.
-..* Developed by Bjarne Stroustrup in 1985 at Bell Labs
+ - Developed by Bjarne Stroustrup in 1985 at Bell Labs
 * It is used frequently in desktop application development, game development, animation
 (Pixar's tools are built in C++), operating systems, compilers...
 * It is a very powerful language, but also a bit less friendly.
-..* It's not as friendly as Java, but it's not as raw as C is.
+ - It's not as friendly as Java, but it's not as raw as C is.
 
 #### The Basics
 
@@ -74,20 +74,20 @@ int main(int argc, char *argv[]) {
 
 What are some similarities?
 
-###### Similarities
+Similarities:
 1. Both functions are named `main` (this one is trivial).
 2. Syntax is relatively similar (semicolons, curly braces, etc).
 
 Differences?
 
-###### Differences
+Differences:
 1. `main` returns an int now?
-..* That's a bit odd...
+ - That's a bit odd...
 2. What's up with that `<<` syntax? And the `std::`?
 3. `main` takes another argument?
-..* But sometimes it takes no arguments? What's going on?
+ - But sometimes it takes no arguments? What's going on?
 4. No `class`?
-..* C++ **does** have classes, but they're not required.
+ - C++ **does** have classes, but they're not required.
 
 Just with this, it's possible to reason through some programs and to even write some
 basic C++ code. That said, it's best to understand exactly *what* is happening.
@@ -101,7 +101,7 @@ The short reason:
 * The return value has to do with UNIX exit codes (you'll learn these in CSE 15L)
 * Java doesn't have them because of the JVM providing a layer between the kernel
 and your program.
-..* You don't need to know what this means yet, just wait till CSE 120.
+ - You don't need to know what this means yet, just wait till CSE 120.
 
 2. What about the arguments?
 * `main` can either take `void` as an argument, (so, nothing), or the arguments seen
@@ -115,9 +115,9 @@ be explained during week 9.
 
 ###### Compilation
 * Compiling Java was easy
-..* `javac <file>.java`
+ - `javac <file>.java`
 * Compiling C++ is a bit more annoying
-..* Base command is `g++`, but there are a *LOT* of flags.
-..* We provide Makefiles with each assignment to make things a bit more easy.
+ - Base command is `g++`, but there are a *LOT* of flags.
+ - We provide Makefiles with each assignment to make things a bit more easy.
 
 ### Basic Runtime Analysis
