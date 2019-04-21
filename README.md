@@ -14,9 +14,8 @@ All are able to modify this and adapt it as you see fit (open source FTW), just
 give me credit please and thanks.
 
 ### Required Materials
-1. Java 8 or later
-2. Either `clang++` or `g++`
-3. Valgrind and GDB, or other debugging tools
+1. Either `clang++` or `g++`
+2. Valgrind and GDB, or other debugging tools
 
 ### Recommended Materials
 *Coming soon!*
