@@ -129,7 +129,7 @@ programming language used to implement the algo, quality of the operating system
 
 Solution: Quantify our algorithm speed and space in terms of *abstract operations*
 
-*Note: We won't get into the details (I'll leave that for CSE 21 and 101) but this will be a quick and dirty intro*
+*Note: We won't get into the details (I'll leave that for CSE 21 and 101) but this will be a quick and dirty intro.*
 *In general, we will talk about the average case upper bound (aka big O), but other measures exist.*
 
 Here's a table to build intuition about kinds of runtime:
@@ -213,4 +213,5 @@ int mystery(int n) {
   std::cout << count << std::endl;
 }
 ```
+[back](../lectures.md)
 <!--- note: answer should be O(n log n) --->
