@@ -10,15 +10,16 @@ else
 	LDFLAGS=-g
 endif
 
-
 new:
 	make clean
-	make test
+	make run
+
+run: test
+	bin/test_runner
 
 test: setup check.o
 	g++ $(LINKFLAGS) -o test_runner $(LDFLAGS) bin/check.o bin/pa1.o
 	mv test_runner bin/
-	bin/test_runner
 
 setup:
 	mkdir bin

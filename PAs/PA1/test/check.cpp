@@ -8,49 +8,49 @@ int run_tests(std::vector<bool> & results) {
   int count = 0, num_correct = 0;
   bool result;
 
-  result = test_utils::test(grade_assignment(100), PERFECT);
+  result = test_utils::test(GradeAssignment(100), PERFECT);
   if(result) {
     results[count] = true;
     num_correct++;
   }
   count++;
 
-  result = test_utils::test(grade_assignment(76), C_SCORE);
+  result = test_utils::test(GradeAssignment(76), C_SCORE);
   if(result) {
     results[count] = true;
     num_correct++;
   }
   count++;
 
-  result = test_utils::test(grade_assignment(88), B_SCORE);
+  result = test_utils::test(GradeAssignment(88), B_SCORE);
   if(result) {
     results[count] = true;
     num_correct++;
   }
   count++;
 
-  result = test_utils::test(grade_assignment(30), FAIL);
+  result = test_utils::test(GradeAssignment(30), FAIL);
   if(result) {
     results[count] = true;
     num_correct++;
   }
   count++;
 
-  result = test_utils::test(replace_letter("HELLO THERE", 'E', 'X'), std::string("HXLLO THXRX"));
+  result = test_utils::test(ReplaceLetter("HELLO THERE", 'E', 'X'), std::string("HXLLO THXRX"));
   if(result) {
     results[count] = true;
     num_correct++;
   }
   count++;
 
-  result = test_utils::test(replace_letter("GENERAL KENOBI", 'G', 'H'), std::string("HENERAL KENOBI"));
+  result = test_utils::test(ReplaceLetter("GENERAL KENOBI", 'G', 'H'), std::string("HENERAL KENOBI"));
   if(result) {
     results[count] = true;
     num_correct++;
   }
   count++;
 
-  result = test_utils::test(replace_letter("THE SENATE WILL DECIDE YOUR FATE", 'E',  '*'),
+  result = test_utils::test(ReplaceLetter("THE SENATE WILL DECIDE YOUR FATE", 'E',  '*'),
     std::string("TH* S*NAT* WILL D*CID* YOUR FAT*"));
   if(result) {
     results[count] = true;
@@ -58,7 +58,7 @@ int run_tests(std::vector<bool> & results) {
   }
   count++;
 
-  result = test_utils::test(replace_letter("I AM THE SENATE", 'S', 'B'), std::string("I AM THE BENATE"));
+  result = test_utils::test(ReplaceLetter("I AM THE SENATE", 'S', 'B'), std::string("I AM THE BENATE"));
   if(result) {
     results[count] = true;
     num_correct++;
@@ -66,7 +66,7 @@ int run_tests(std::vector<bool> & results) {
   count++;
 
   double scores1[] = {10, 3, 8, 4, 9};
-  result = test_utils::test(average_score(scores1, 5), 6.8);
+  result = test_utils::test(AverageScore(scores1, 5), 6.8);
   if(result) {
     results[count] = true;
     num_correct++;
@@ -74,7 +74,7 @@ int run_tests(std::vector<bool> & results) {
   count++;
 
   double scores2[] = {10, 13, 18, 14, 9, 20, 15, 17, 16, 16};
-  result = test_utils::test(average_score(scores2, 10), 14.8);
+  result = test_utils::test(AverageScore(scores2, 10), 14.8);
   if(result) {
     results[count] = true;
     num_correct++;

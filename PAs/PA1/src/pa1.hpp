@@ -12,13 +12,13 @@ const std::string D_SCORE = "Oof you got a D, try again next time";
 const std::string FAIL = "Yikes that's an F bud, sorry";
 
 // Question 1: Return a string corresponding to the grade
-std::string grade_assignment(int);
+std::string GradeAssignment(int);
 
 // Question 2: replace all letters in the string with the given char and return
 // it
-std::string replace_letter(const std::string &, const char, const char);
+std::string ReplaceLetter(const std::string &, const char, const char);
 
 // Question 3: Find the average of all of the entries of the array
-double average_score(const double scores[], int);
+double AverageScore(const double scores[], int);
 
 #endif
