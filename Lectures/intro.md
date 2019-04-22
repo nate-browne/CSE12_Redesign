@@ -16,6 +16,7 @@ The Crew
 TAs (if applicable):
 * Name
 * Here
+
 Tutors/IAs/Undergraduate TAs (if applicable):
 * Name
 * Here

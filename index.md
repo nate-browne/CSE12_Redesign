@@ -1,4 +1,4 @@
-[Assignments](assignments.md) • [Schedule](schedule.md) • [Lectures Notes](lectures.md) • [Staff](staff.md)
+[Assignments](assignments.md) • [Schedule](schedule.md) • [Lectures Notes](lectures.md) • [Staff](staff.md) • [Style Guide](styleguide.md)
 
 ![fibonacci heap](images/fibheap.png)
 
@@ -15,11 +15,14 @@ Turnin instructions will be posted with the assignments. Do note that you have a
 that can be used as needed throughout the quarter, with one late day defined as turning in the assignment anywhere from
 1 second to 23 hours, 59 minutes, and 59 seconds past the deadline.
 
-**Exams (60%)**: There are two midterms (one week 5 and the other week 8) and a final exam. For both midterms, a one-sided
+**Exams (55%)**: There are two midterms (one week 5 and the other week 8) and a final exam. For both midterms, a one-sided
 study sheet is allowed, with the final allowing for a two-sided sheet. Maximum sheet size is 8.5" x 11". This percentage will be calculated in one of three ways, whichever is highest:
-1. midterm 1 (15%) + midterm 2 (15%) + final (30%)
-2. drop one midterm + midterm (30%) + final (30%)
-3. drop one midterm + midterm (15%) + final (45%)
+1. midterm 1 (15%) + midterm 2 (15%) + final (25%)
+2. drop one midterm + midterm (25%) + final (30%)
+3. drop one midterm + midterm (15%) + final (40%)
+
+**Participation (5%)**: This class uses [Socrative](https://socrative.com/), a free alternative to clickers. You can
+download the app onto a phone or tablet, or use it from your browser.
 
 _Extra credit may be awarded to students who are top contributors on Piazza and in lecture, as determined at the discretion of the course staff._
 
