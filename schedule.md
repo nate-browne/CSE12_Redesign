@@ -1,5 +1,7 @@
 # Schedule
 
+![kd tree](images/k-d&#32;tree.png)
+
 Week | Topic
 :---: | :---:
 1 | C++, Java, and Basic Runtime Analysis
