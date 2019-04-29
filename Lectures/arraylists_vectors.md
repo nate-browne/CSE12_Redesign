@@ -1,5 +1,7 @@
 # ArrayLists and Vectors
 
+![arraylist](../images/arraylist.png)
+
 ## The Motivation
 
 Arrays are great.
