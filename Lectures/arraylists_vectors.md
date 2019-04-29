@@ -185,11 +185,17 @@ Now back to the main content.
 What's the runtime of...
 
 `size`? <!--- runtime of size is O(1) --->
+
 `empty`? <!--- runtime of empty is O(1) --->
+
 `operator[]/at` and `front` and `back`? <!--- runtime of this is also O(1) --->
+
 `pop_back`? <!--- runtime of this is O(1) --->
+
 `insert`? <!--- Runtime is linear on the number of elements inserted + number of elements after position --->
+
 `push_back`? <!--- This one they won't get; runtime is O(1) amortized time where a reallocation is linear time up to the size --->
+
 
 To fully understand the runtime of `push_back`, wait until an advanced algorithms class where *amortization* is discussed. We won't
 cover that now :)
