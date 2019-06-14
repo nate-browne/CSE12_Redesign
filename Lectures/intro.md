@@ -1,4 +1,5 @@
-# Introduction to C++, Java and Basic Runtime Analysis
+# Introduction to C++ and Basic Runtime Analysis
+### Chapters 1 & 2 of _Data Structures and Algorithm Analysis in C++_
 
 Who am I?
 
@@ -37,7 +38,7 @@ What is CSE 12 _not_ about?
   - The information will be helpful for those, but it is not strictly the purpose.
 * This class isn't about the proofs of why these data structures work.
   - We will talk a little bit about the math, but not a ton.
-  - The details will be CSE 21 and CSE 101 ;)
+  - Those details will be in CSE 21 and CSE 101 ;)
 
 ## Introduction to C++ (from a Java perspective)
 
@@ -140,7 +141,7 @@ Adjective | O-notation | Sample operation
 constant | O(1) | adding two `int` values
 logarithmic | O(log n) | binary search
 linear | O(n) | iterating through an array
-logarithmic linear | O(n log n) | merge sort
+linearithmic | O(n log n) | merge sort
 quadratic | O(n<sup>2</sup>) | bubble sort
 cubic | O(n<sup>3</sup>) | naïve matrix multiplication
 exponential | O(x<sup>n</sup>), for x > 1 | naïve Fibonacci is ~2<sup>n</sup>
