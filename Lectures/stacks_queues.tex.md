@@ -20,7 +20,7 @@ Firstly, we'll talk about stacks.
 
 * What: ADT that supports three basic operations: `push`, `pop`, and `top/peek`
 
-* Why: Provides constant time O(1) access to *only* the most recently added element. Allows us to create a history of things in order that they were seen. Follows ordering of __*Last in, First Out*__ (LIFO).
+* Why: Provides constant time $O(1)$ access to *only* the most recently added element. Allows us to create a history of things in order that they were seen. Follows ordering of __*Last in, First Out*__ (LIFO).
 
 ### Use Cases
 
