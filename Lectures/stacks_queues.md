@@ -20,7 +20,7 @@ Firstly, we'll talk about stacks.
 
 * What: ADT that supports three basic operations: `push`, `pop`, and `top/peek`
 
-* Why: Provides constant time $O(1)$ access to *only* the most recently added element. Allows us to create a history of things in order that they were seen. Follows ordering of __*Last in, First Out*__ (LIFO).
+* Why: Provides constant time O(1) access to *only* the most recently added element. Allows us to create a history of things in order that they were seen. Follows ordering of __*Last in, First Out*__ (LIFO).
 
 ### Use Cases
 
@@ -44,7 +44,7 @@ How would you approach this question? Discuss
 
 Solution:
 
-Create a stack. Read characters in. If you see a '(', '[', or a '{', push it onto the stack. When you see one of the closing ones, pop off of the stack and check if you have a matching pair. Once you're done reading the string, check if your stack is empty and return `true` if so. This runs in $O(n)$ time where $n$ is the length of the string.
+Create a stack. Read characters in. If you see a '(', '[', or a '{', push it onto the stack. When you see one of the closing ones, pop off of the stack and check if you have a matching pair. Once you're done reading the string, check if your stack is empty and return `true` if so. This runs in O(n) time where $n$ is the length of the string.
 
 #### Infix to Postfix
 
@@ -68,7 +68,7 @@ Next, queues. Queues are known as __*First in, First out*__ structures (FIFOs), 
 * Queues can be implemented worst case to take linear time for both operations, but it is possible to get constant time `enqueue` and `dequeue`. *How might we do this?*
 
 
-## C++ Feature: Introduction to Templates
+## C++ Feature: Introduction to Templates and Iterators
 
 * Often, you don't truly know what you'll be putting into your data structures.
 * Templates allow for you to write one set of code that can be used with anything matching the constraints.
@@ -133,6 +133,19 @@ Some notes:
 1. These template classes *must* go in header files! If you want to put the implementation code in a `.cpp` file, you'll need an `#include <filename>.cpp` right above the `#endif`.
 2. Everything defined outside of the class must have a `template <class classname>` above it.
 3. You would initialize a stack by doing `stack<int> s;` to invoke the constructor.
+
+Now, for iterators
+
+#### Idea
+* The main concept is to abstract away the details of how iteration is done for each structure, allowing for more consistent and familiar syntax for each structure.
+* Iterators allow for features including
+    1. `for-each` loops (`for(auto a : structure) { ... }`)
+    2. Easy access to each element
+    3. Traversals without doing anything other than `operator ++`
+    4. Consistency throughout your entire API
+
+#### Implementation
+It's a bit complex, so I'll differ this to your own [research](https://lmgtfy.com/?s=d&q=c%2B%2B+iterator+guide).
 
 
 That's all folks! Next time, [Linked Lists](./linkedlists.md)
