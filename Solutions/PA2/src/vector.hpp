@@ -1,7 +1,6 @@
 #ifndef VECTOR_HPP
 #define VECTOR_HPP
 
-#include <cmath>
 #include <exception>
 
 #define DEFAULT_SIZE 10
@@ -98,14 +97,20 @@ namespace cse12_ds {
 
     void erase(int position) {
       this->arr[position].~T();
+      for(size_t i = position + 1; i < num_elems; ++i) {
+        this->arr[i - 1] = this->arr[i];
+      }
       num_elems--;
     }
 
     void erase(int start, int end) {
       for(int i = start; i < end; ++i) {
         this->arr[i].~T();
-        num_elems--;
       }
+      for(size_t i = end, counter = 0; i < num_elems; ++i, ++counter) {
+        this->arr[start + counter] = this->arr[i];
+      }
+      num_elems = num_elems - (end - start); // decrement number of elements in vector
     }
 
     void clear() noexcept {
