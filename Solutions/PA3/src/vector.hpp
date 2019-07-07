@@ -4,7 +4,6 @@
 #include <exception>
 
 #define DEFAULT_SIZE 10
-#define ERR_STR "Accessing element out of range of vector"
 
 namespace cse12_ds {
 
@@ -46,7 +45,7 @@ namespace cse12_ds {
     } 
 
     T & at(unsigned int pos) {
-      if(pos < 0 || pos >= this->size()) throw std::out_of_range(ERR_STR);
+      if(pos < 0 || pos >= this->size()) throw std::out_of_range("Accessing element out of range of vector");
       return this->arr[pos];
     }
 
