@@ -43,7 +43,7 @@ namespace cse12_ds {
 
     T & operator[](int pos) {
       return this->arr[pos];
-    } 
+    }
 
     T & at(unsigned int pos) {
       if(pos < 0 || pos >= this->size()) throw std::out_of_range(ERR_STR);
