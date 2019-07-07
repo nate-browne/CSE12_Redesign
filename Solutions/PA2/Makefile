@@ -17,7 +17,7 @@ new:
 prog: build 
 	bin/driver
 
-build: setup driver.o
+build: clean setup driver.o
 	g++ $(LINKFLAGS) -o driver $(LDFLAGS) bin/driver.o
 	mv driver bin/
 

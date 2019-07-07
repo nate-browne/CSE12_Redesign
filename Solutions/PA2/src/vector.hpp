@@ -12,9 +12,10 @@ namespace cse12_ds {
   class vector {
    private:
     T *arr; // the array itself
-    int _size; // size of the array
-    int num_elems; // Number of elements in the array
+    size_t _size; // size of the array
+    size_t num_elems; // Number of elements in the array
    public:
+
     vector(void) {
       this->_size = DEFAULT_SIZE; // Start off with default size.
       this->arr = new T[_size];
@@ -28,11 +29,11 @@ namespace cse12_ds {
       delete [] this->arr;
     }
 
-    int size(void) {
+    size_t size(void) {
       return this->num_elems;
     }
 
-    int capacity(void) {
+    size_t capacity(void) {
       return this->_size;
     }
 
@@ -44,7 +45,7 @@ namespace cse12_ds {
       return this->arr[pos];
     } 
 
-    T & at(int pos) {
+    T & at(unsigned int pos) {
       if(pos < 0 || pos >= this->size()) throw std::out_of_range("Accessing element out of range of vector");
       return this->arr[pos];
     }
