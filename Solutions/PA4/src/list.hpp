@@ -13,7 +13,7 @@ namespace cse12_ds {
   class node {
    public:
     node *pre, *next;
-    T & data;
+    T data;
     node(const T & data) : pre(nullptr), next(nullptr) {
       this->data = data;
     }
@@ -38,9 +38,11 @@ namespace cse12_ds {
 
     ~list(void) {
       node *tmp = front;
+      node *nt = tmp->next;
       while(tmp) {
         delete tmp;
-        tmp = tmp->next;
+        tmp = nt;
+        nt = nt->next;
       }
     }
 
@@ -90,13 +92,76 @@ namespace cse12_ds {
       --num_elements;
     }
 
-    void insert(int position, const T & val) {}
+    void insert(int position, const T & val) {
+      node *finder;
+      node *tmp;
 
-    T & erase(int position) {}
+      if(position == 0 || position == this->size() - 1) {
+        tmp = new node(val);
+        switch(position) {
+          case 0:
+            tmp->pre = nullptr;
+            tmp->next = this->front;
+            this->front->pre = tmp;
+            break;
+          case this->size() - 1:
+            tmp->next = nullptr;
+            tmp->pre = this->back;
+            this->back->next = tmp;
+            break;
+        }
+      } else {
+        if(start_from_back(position)) {
+          int counter = 0;
+          finder = this->back;
+          for( ; counter < position; counter++) {
+            finder = tmp->pre;
+          }
+        } else {
+          int counter = 0;
+          finder = this->front;
+          for( ; counter < position; counter++) {
+            finder = tmp->next;
+          }
+        }
+
+        tmp = new node(val);
+        tmp->next = finder;
+        tmp->pre = finder->pre;
+        finder->pre->next = tmp;
+        finder->pre = tmp;
+      }
+    }
+
+    T & erase(int position) {
+      node *tmp;
+      if(position == 0 || position == size() - 1) {
+
+      } else {
+
+        if(start_from_back(position)) {
+          int counter = 0;
+          tmp = this->back;
+          for( ; counter < position; counter++) {
+            tmp = tmp->pre;
+          }
+        } else {
+
+        }
+      }
+    }
     T & erase(int start, int end) {}
-    void clear(void) noexcept {}
+
+    void clear(void) noexcept {
+      node *tmp = this->front;
+      node *nt = this->front->next;
+      while(tmp) {
+        delete tmp;
+        tmp = nt;
+        nt = nt->next;
+      }
+    }
   };
 }
-
 
 #endif

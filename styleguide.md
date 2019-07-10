@@ -47,14 +47,14 @@ with a few modifications/simplifications. In general though, you can just follow
 12. Constants/Macros
   * These should be UPPER_SNAKE_CASE.
 13. Classes/Structs
-  * First letter should be capatalized UpperCamelCase with no underscores.
+  * Since we're naming our data structures like the ones found in `stl`, they should be all lower_case_snake_case.
 14. Functions
   * These should be UpperCamelCase, and should contain a verb (e.g. `CalculatePredecessor`)
   * _**Exception**_: accessor/mutator methods (getters and setters) can be named like the variable (e.g. `get_count`)
 15. File Names
-  * These should be snake case (lowercase with underscores).
+  * These should be snake_case (lowercase with underscores).
 16. Variable Names
-  * Like file names, these should be snake case. Don't use lowerCamelCase
+  * Like file names, these should be snake_case. Don't use lowerCamelCase
 17. Namespaces
   * These should be all lowercase (e.g. `std::` and `test_utils`)
 
