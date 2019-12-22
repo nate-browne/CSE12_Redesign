@@ -148,7 +148,7 @@ class MyArray:
 
 You'll have to implement delete yourself ;)
 
-The ADT we've implemented has a name: the **ArrayList (Java)/Vector (C++)**
+The data structure we've implemented has a name: the **ArrayList (Java)/Vector (C++)**
 
 ## Another Sidenote: ADTs vs Data Structures
 
@@ -165,7 +165,7 @@ Example data structures:
 * Arrays, LinkedLists, ArrayLists...
 
 Example Abstract Data Types:
-* Binary Search Trees, Stacks, Queues, Heaps...
+* Binary Search Trees, Stacks, Queues, Heaps, Lists...
 
 Now back to the main content.
 
@@ -181,6 +181,7 @@ Now back to the main content.
   `front` (access first element), `back` (access last element), `push_back` (add to end), `pop_back` (remove from end), and
   `insert` (insert at a given position via iterator).
 * Other functions include `shrink_to_fit` (make the vector smaller), `max_size`, `resize`, and `capacity`.
+* ArrayLists/Vectors are a common implementation of the List ADT, which is, well, a *list* of elements.
 
 What's the runtime of...
 

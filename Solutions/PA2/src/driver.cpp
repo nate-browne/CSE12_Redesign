@@ -17,7 +17,7 @@ int main(void) {
 
   while(true) {
     char command = '\0';
-    std::cout << "Please enter a command: (e(m)pty, (s)ize, element (a)t, (f)ront, (b)ack," << 
+    std::cout << "Please enter a command (e(m)pty, (s)ize, element (a)t, (f)ront, (b)ack," << 
     " (p)ush back, p(o)p back, (i)nsert, (e)rase, (c)lear): ";
     if((command = fgetc(stdin)) == EOF) {
       break;

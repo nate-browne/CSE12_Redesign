@@ -2,7 +2,6 @@
 #define LIST_HPP
 
 #include <cstdlib>
-
 #include <exception>
 
 #define HALF 2
@@ -23,109 +22,124 @@ namespace cse12_ds {
   template <class T>
   class list {
    private:
-    node *front, *back;
+    node<T> *_front, *_back;
     size_t num_elements;
 
-    bool start_from_back(int position) {
+    bool start_from_back(size_t position) {
       return position >= num_elements / HALF;
     }
    public:
 
-    list(void) {
-      next = pre = nullptr;
+    list(void) : _front(nullptr), _back(nullptr) {
       num_elements = 0;
     }
 
     ~list(void) {
-      node *tmp = front;
-      node *nt = tmp->next;
-      while(tmp) {
-        delete tmp;
-        tmp = nt;
-        nt = nt->next;
-      }
+      if(!this->empty())
+        this->clear();
     }
 
-    bool empty(void) {
-      return num_elements == 0;
+    bool empty(void) const {
+      return size() == 0;
     }
 
-    size_t size(void) {
+    size_t size(void) const {
       return num_elements;
     }
 
-    T & front(void) {
-      return this->front->data;
+    const T & front(void) const {
+      return this->_front->data;
     }
 
-    T & back(void) {
-      return this->back->data;
+    const T & back(void) const {
+      return this->_back->data;
     }
 
     void push_front(const T & val) {
-      node *tmp = new node(val);
-      tmp->next = this->front;
-      this->front->pre = tmp;
-      this->front = tmp;
+      node<T> *tmp = new node<T>(val);
+
+      if(!_front) {
+        this->_front = tmp;
+      } else {
+        tmp->next = this->_front;
+        this->_front->pre = tmp;
+        this->_front = tmp;
+      }
       ++num_elements;
+      if(this->size() == 1) this->_back = this->_front;
     }
 
     void pop_front(void) {
-      this->front = this->front->next;
-      delete this->front->pre;
-      this->front->pre = nullptr;
+      node<T> *tmp = this->_front;
+      this->_front = this->_front->next;
+      delete tmp;
       --num_elements;
+      if(this->size())
+        this->_front->pre = nullptr;
+      else
+        this->_front = this->_back = nullptr;
     }
 
     void push_back(const T & val) {
-      node *tmp = new node(val);
-      this->back->next = tmp;
-      tmp->pre = this->back;
-      this->back = tmp;
+      node<T> *tmp = new node<T>(val);
+
+      if(!_back) {
+        this->_back = tmp;
+      } else {
+        this->_back->next = tmp;
+        tmp->pre = this->_back;
+        this->_back = tmp;
+      }
       ++num_elements;
+      if(this->size() == 1) this->_front = this->_back;
     }
 
     void pop_back(void) {
-      this->back = this->back->pre;
-      delete this->back->next;
-      this->back->next = nullptr;
+      node<T> *tmp = this->_back;
+      this->_back = this->_back->pre;
+      delete tmp;
       --num_elements;
+      if(this->size())
+        this->_back->next = nullptr;
+      else
+        this->_front = this->_back = nullptr;
     }
 
-    void insert(int position, const T & val) {
-      node *finder;
-      node *tmp;
+    void insert(const size_t position, const T & val) {
+      node<T> *finder;
+      node<T> *tmp;
 
-      if(position == 0 || position == this->size() - 1) {
-        tmp = new node(val);
+      if(!position || position == this->size() - 1) {
+        tmp = new node<T>(val);
         switch(position) {
           case 0:
-            tmp->pre = nullptr;
-            tmp->next = this->front;
-            this->front->pre = tmp;
+            tmp->next = this->_front;
+            this->_front->pre = tmp;
+            this->_front = tmp;
             break;
-          case this->size() - 1:
-            tmp->next = nullptr;
-            tmp->pre = this->back;
-            this->back->next = tmp;
+          default:
+            tmp->pre = this->_back;
+            this->_back->next = tmp;
+            this->_back = tmp;
             break;
         }
+        return;
       } else {
         if(start_from_back(position)) {
-          int counter = 0;
-          finder = this->back;
+          size_t counter = 0;
+          finder = this->_back;
           for( ; counter < position; counter++) {
-            finder = tmp->pre;
+            finder = finder->pre;
           }
         } else {
-          int counter = 0;
-          finder = this->front;
+          size_t counter = 0;
+          finder = this->_front;
           for( ; counter < position; counter++) {
-            finder = tmp->next;
+            finder = finder->next;
           }
         }
 
-        tmp = new node(val);
+        tmp = new node<T>(val);
         tmp->next = finder;
         tmp->pre = finder->pre;
         finder->pre->next = tmp;
@@ -133,33 +147,55 @@ namespace cse12_ds {
       }
     }
 
-    T & erase(int position) {
-      node *tmp;
-      if(position == 0 || position == size() - 1) {
-
-      } else {
-
-        if(start_from_back(position)) {
-          int counter = 0;
-          tmp = this->back;
-          for( ; counter < position; counter++) {
-            tmp = tmp->pre;
-          }
-        } else {
-
+    T & erase(const size_t position) {
+      if(!position || position == this->size() - 1) {
+        switch(position) {
+          case 0:
+            this->_front = this->_front->next;
+            delete this->_front->pre;
+            this->_front->pre = nullptr;
+            break;
+          default:
+            this->_back = this->_back->pre;
+            delete this->_back->next;
+            this->_back->next = nullptr;
+            break;
         }
+        --num_elements;
+        return (position == 0) ? this->_front->data : this->_back->data;
+      } else {
+        node<T> *finder;
+        if(start_from_back(position)) {
+          size_t counter = 0;
+          finder = this->_back;
+          for( ; counter < position; ++counter)
+            finder = finder->pre;
+        } else {
+          size_t counter = 0;
+          finder = this->_front;
+          for( ; counter < position; ++counter)
+            finder = finder->next;
+        }
+
+        T & data = finder->next->data;
+        finder->next->pre = finder->pre;
+        finder->pre->next = finder->next;
+        delete finder;
+        return data;
       }
     }
-    T & erase(int start, int end) {}
 
     void clear(void) noexcept {
-      node *tmp = this->front;
-      node *nt = this->front->next;
+      node<T> *tmp = this->_front;
+      node<T> *nt = this->_front->next;
       while(tmp) {
         delete tmp;
         tmp = nt;
-        nt = nt->next;
+        nt = (nt) ? nt->next : nullptr;
       }
+
+      this->_back = this->_front = nullptr;
+      this->num_elements = 0;
     }
   };
 }

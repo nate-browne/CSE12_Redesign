@@ -10,12 +10,23 @@ else
 	LDFLAGS=-g
 endif
 
+UNAME := $(shell uname)
+ifeq ($(UNAME),Linux)
+	DEBUGGER=gdb
+else
+ifeq ($(UNAME), Darwin)
+	DEBUGGER=lldb
+endif
+endif
+
 new:
-	make clean
 	make prog
 
 prog: build 
 	bin/driver
+
+debug: build
+	$(DEBUGGER) bin/driver
 
 build: clean setup driver.o
 	g++ $(LINKFLAGS) -o driver $(LDFLAGS) bin/driver.o

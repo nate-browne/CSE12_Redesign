@@ -10,9 +10,20 @@ else
 	LDFLAGS=-g
 endif
 
+UNAME := $(shell uname)
+ifeq ($(UNAME),Linux)
+	DEBUGGER=gdb
+else
+ifeq ($(UNAME), Darwin)
+	DEBUGGER=lldb
+endif
+endif
+
 new:
-	make clean
 	make prog
+
+debug: build
+	$(DEBUGGER) bin/driver
 
 prog: build 
 	bin/driver

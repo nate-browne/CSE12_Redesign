@@ -1,4 +1,4 @@
-# HW1: Introduction to C++ (XXX points)
+# PA1: Introduction to C++ (XXX points)
 ## Due: TBD
 
 ### Overview

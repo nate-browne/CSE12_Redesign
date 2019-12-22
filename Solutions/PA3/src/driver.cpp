@@ -8,8 +8,8 @@
 #include "queue.hpp"
 #include "stack.hpp"
 
-#define QUEUE_STR "Please enter a command: (e(m)pty, (s)ize, (f)ront, (b)ack, (p)ush, p(o)p): ";
-#define STACK_STR "Please enter a command: (e(m)pty, (s)ize, (t)op, (p)ush, p(o)p): ";
+#define QUEUE_STR "Please enter a command (e(m)pty, (s)ize, (f)ront, (b)ack, (p)ush, p(o)p): ";
+#define STACK_STR "Please enter a command (e(m)pty, (s)ize, (t)op, (p)ush, p(o)p): ";
 
 void clrbuf(char c) {
   while(c != '\n') c = fgetc(stdin);
@@ -139,7 +139,6 @@ int main(void) {
     }
   }
 
-  delete queue;
-  delete stack;
+  (queue) ? delete queue : delete stack;
   return EXIT_SUCCESS;
 }

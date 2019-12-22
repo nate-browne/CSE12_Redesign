@@ -9,7 +9,7 @@ Stacks and Queues are ADTs that represent some of the most normally occurring ph
 
 Examples include:
 
-* Queue lines (obviously)
+* Queues (lines) (obviously)
 * Piles of stuff
 * Browser history
 * Waiting to buy the next pair of Yeezys
@@ -44,7 +44,7 @@ How would you approach this question? Discuss
 
 Solution:
 
-Create a stack. Read characters in. If you see a '(', '[', or a '{', push it onto the stack. When you see one of the closing ones, pop off of the stack and check if you have a matching pair. Once you're done reading the string, check if your stack is empty and return `true` if so. This runs in O(n) time where $n$ is the length of the string.
+Create a stack. Read characters in. If you see a '(', '[', or a '{', push it onto the stack. When you see one of the closing ones, pop off of the stack and check if you have a matching pair. Once you're done reading the string, check if your stack is empty and return `true` if so. This runs in `O(n)` time where `n` is the length of the string.
 
 #### Infix to Postfix
 

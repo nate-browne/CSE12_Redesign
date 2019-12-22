@@ -1,8 +1,10 @@
-# HW2: Vector
+# PA2: Vector (XXX points)
 ## Due: TBD
 
 ### Overview
-In this PA, you'll be creating your own version of the [vector](http://www.cplusplus.com/reference/vector/vector/?kw=vector) class found in the C++ `stl`. You'll be implementing many of the functions found (see specifics below), and optimally, your vector class should be (mostly) indistinguishable from the C++ built-in one.
+In this PA, you'll be creating your own version of the [vector](https://en.cppreference.com/w/cpp/container/vector) data structure found in the C++ `stl`. You'll be implementing many of the functions found (see specifics below), and optimally, your vector class should be (mostly) indistinguishable from the C++ built-in one.
+
+As discussed in class, a Vector is an implementation of the List ADT that provides constant time access to any element.
 
 #### *Note: If you use the `<vector>` header, you **will** get 0 points!*
 
@@ -10,7 +12,7 @@ Your implementation should go in `vector.hpp`, under the `cse12_ds` namespace. *
 This is to prevent conflicts between the `std` namespace data structures/ADTs and ours, since they will have the exact same names as their `std` library equivalents.
 
 #### Compilation and Testing
-To compile, use the provided Makefile. If you just want to build the program, run `make build`. If you want to build and run, use `make prog`.
+To compile, use the provided Makefile. If you just want to build the program, run `make build`. If you want to build and run, use `make prog`. For debugging, run `make debug`.
 
 *You are responsible for testing your own program.* We have the driver program available for you to use to assist, but do note that it will be on **you** to make sure that everything works as expected.
 
@@ -23,9 +25,9 @@ It is not mandatory, but you should consider [unit testing](https://en.wikipedia
 ### The Code
 As noted above, you'll be re-implementing the C++ `vector` class. Do note that this means that you **do not** have to do things that the original `vector` class does not do! This will be explained below, but knowing this should simplify your design a bit.
 
-You will have to deal with [exception handling in C++](http://www.cplusplus.com/reference/exception/exception/?kw=exception). It works a lot like how it does in Java or Python, so this shouldn't be too hard to figure out.
+You will have to deal with [exception handling in C++](https://en.cppreference.com/w/cpp/error/exception). It works a lot like how it does in Java or Python, so this shouldn't be too hard to figure out.
 
-We are using [templates](http://www.cplusplus.com/doc/oldtutorial/templates/) here to assist with polymorphic behavior. The link above will help to understand them, but if confused, feel free to refer back to lecture notes, DuckDuckGo for some more explanations, ask the staff, etc.
+We are using [templates](https://en.cppreference.com/w/cpp/language/templates) here to assist with polymorphic behavior. The link above will help to understand them, but if confused, feel free to refer back to lecture notes, DuckDuckGo for some more explanations, ask the staff, etc.
 
 #### The Functions, Described
 *Do note that you don't have to implement them in this order*
