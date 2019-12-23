@@ -120,10 +120,6 @@ void SocialNetworkNode::add_friend(const std::string & friend_n) {
   this->friends->insert(friend_n);
 }
 
-bool SocialNetworkNode::query(const std::string & name) const {
-  return this->friends->count(name);
-}
-
 std::string SocialNetworkNode::get_name(void) const {
   return this->name;
 }
@@ -134,7 +130,7 @@ const std::unordered_set<std::string> * SocialNetworkNode::get_friends_list(void
 
 void SocialNetwork::fill_entry(const std::string & nm, const std::vector<std::string> * entries) {
   std::default_random_engine generator;
-  std::normal_distribution<double> dist;
+  std::uniform_real_distribution<double> dist(0.0, 1.0);
   for(std::string ent : *entries) {
     double drop_prob = dist(generator);
     if(ent != nm) {
@@ -201,4 +197,8 @@ void SocialNetwork::print_friends_for(const std::string & name) {
   for(std::string frnd : *friends) {
     std::cout << frnd << std::endl;
   }
+}
+
+bool SocialNetwork::is_entry(const std::string & name) {
+  return this->friend_map->count(name);
 }

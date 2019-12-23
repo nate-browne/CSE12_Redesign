@@ -33,7 +33,6 @@ class SocialNetworkNode {
  public:
   SocialNetworkNode(const std::string &);
   ~SocialNetworkNode(void);
-  bool query(const std::string &) const;
   void add_friend(const std::string &);
   const std::unordered_set<std::string> * get_friends_list(void) const;
   std::string get_name(void) const;
@@ -48,6 +47,7 @@ class SocialNetwork {
   ~SocialNetwork(void);
   bool are_connected(const std::string &, const std::string &) const;
   void print_friends_for(const std::string &);
+  bool is_entry(const std::string &);
 };
 
 #endif

@@ -25,34 +25,38 @@ You'll be filling out the missing method bodies for the classes defined in `dict
 Many methods are very straight forward, but for the more complicated ones, make sure you understand what it is you're doing _before_ you
 try writing any code.
 
+For the phone book, you will be writing methods that allow you to check if a given name has a phone number in the book as well as
+getting the corresponding number for a given name. You should start with these first, as they are easier to implement.
+
+The `SocialNetwork` graph class is made up of an `unordered_map` mapping `std::string` entries to `SocialNetworkNode` objects.
+You will write functions that allow you to add a friend to a given node, query a node to see if it contains a friend, get the name assigned to the given node, get the friend list for the given node, check if two names are connected in the Network (e.g. they have some connection to each other via mutual friends), and print all of the friends for a given entry in the Network. You also will be writing the destructor for the `SocialNetwork` class.
+
 #### The Functions, Described
-1. `bool PhoneBook::is_empty(const std::string & name) const`
-   * This function just checks if our PhoneBook is empty.
+1. `bool PhoneBook::is_entry(const std::string & name) const`
+   * This function just checks if our PhoneBook has `name` as an entry.
    * Should be an easy one-liner.
 2. `const std::string PhoneBook::get_entry(const std::string & name) const`
    * This function should grab the corresponding phone number for the given `name`.
    * If no such number exists, return the empty string.
+   * One easy way to implement this is via exception handling.
 3. `void SocialNetworkNode::add_friend(const std::string & friend_n)`
    * This function just adds a friend to the current node.
      * What field do you modify to accomplish this?
    * Should be a one line function.
-4. `bool SocialNetworkNode::query(const std::string & name) const`
-   * Checks if the given `name` is a friend of the current node.
-   * Should be a one line function.
-5. `std::string SocialNetworkNode::get_name(void) const`
+4. `std::string SocialNetworkNode::get_name(void) const`
    * Gets the name of the current node.
    * Should be an easy one-liner.
-6. `const std::unordered_set<std::string> *SocialNetworkNode::get_friends_list(void) const`
+5. `const std::unordered_set<std::string> *SocialNetworkNode::get_friends_list(void) const`
    * Returns the list of friends for the current node.
    * Should be an easy one-liner.
-7. `SocialNetwork::~SocialNetwork(void)`
+6. `SocialNetwork::~SocialNetwork(void)`
    * Deallocates *all* memory for this SocialNetwork.
      * What does that also include? Look at the type of the `unordered_map`.
-8. `bool SocialNetwork::are_connected(const std::string & name_1, const std::string & name_2) const`
+7. `bool SocialNetwork::are_connected(const std::string & name_1, const std::string & name_2) const`
    * Walk the structure looking to see if there is any way to reach `name_2` from `name_1`, and return
       true if one does exist.
    * See the implementation tips for more.
-9. `void SocialNetwork::print_friends_for(const std::string & name) const`
+8. `void SocialNetwork::print_friends_for(const std::string & name) const`
    * Prints all of the friends of the node with the given `name`.
    * *__MAKE SURE TO RUN THE DRIVER TO SEE THE EXPECTED FORMAT__*
      * You have been warned.
@@ -62,10 +66,7 @@ try writing any code.
    pages work wonders for understanding the STL.
 2. Take your time and draw things out to make sure you understand all of the working parts.
 3. Read through and understand all of the code we gave you; it'll simplify things later.
-4. For function 8, you'll need to understand how to traverse a graph. You may want to look into
-   implementing either BFS or DFS (DuckDuckGo them), but make sure you understand the code to see
-   how you get from node to node.
-5. This PA features command line arguments and file I/O to make testing easier, but make sure
-   that the formatting is correct since the I/O code isn't very robust.
+4. For function #8, you will need to perform a graph traversal to search. There are many algorithms to do so, and some brute force ways as well, but your best bet is to implement either <a href="https://en.wikipedia.org/wiki/Breadth-first_search" target="_blank">breadth-first search</a> or <a href="https://en.wikipedia.org/wiki/Depth-first_search" target="_blank">depth-first search</a>.
+5. Make sure you understand how the driver works! This can be advantageous to you when testing.
 
 # Good luck! Start Early, Test Often, and Finish Early!

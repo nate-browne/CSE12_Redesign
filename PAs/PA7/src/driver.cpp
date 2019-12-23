@@ -5,7 +5,7 @@ static void die(const char *reason) {
   exit(1);
 }
 
-static void clrbuf() {
+static void clrbuf(void) {
   char c = '\0';
   while(c != '\n') c = fgetc(stdin);
 }
@@ -71,6 +71,8 @@ static void handle_network(SocialNetwork * sn) {
       clrbuf();
       target = std::string(buf);
 
+      if(!sn->is_entry(start)) die("Invalid starting name (not in network).");
+
       std::cout << "Path from \"" << start << "\" to \"" << target << "\": "
         << ((sn->are_connected(start, target)) ? "true" : "false") << std::endl;
       break;
@@ -79,6 +81,9 @@ static void handle_network(SocialNetwork * sn) {
       std::cin >> buf;
       clrbuf();
       start = std::string(buf);
+
+      if(!sn->is_entry(start)) die("Invalid name (not in network).");
+
       sn->print_friends_for(start);
       break;
     default:
