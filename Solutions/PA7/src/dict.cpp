@@ -172,16 +172,24 @@ bool SocialNetwork::are_connected(const std::string & name_1, const std::string 
 
   // gonna do this BFS style
   std::queue<SocialNetworkNode *> q;
+
+  // gotta avoid infinite loops
+  std::unordered_set<SocialNetworkNode *> visited;
+  visited.max_load_factor(0.75);
+
   q.push(this->friend_map->at(name_1));
+  visited.insert(this->friend_map->at(name_1));
 
   while(!q.empty()) {
     SocialNetworkNode *curr = q.front();
+    visited.insert(curr);
     q.pop();
 
     if(curr->get_name() == name_2) return true;
 
     for(std::string nm : *curr->get_friends_list()) {
-      q.push(this->friend_map->at(nm));
+      if(!visited.count(this->friend_map->at(nm)))
+        q.push(this->friend_map->at(nm));
     }
   }
   return false;
