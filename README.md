@@ -15,11 +15,11 @@ give me credit please and thanks.
 
 ### Required Materials
 1. Either `clang++` or `g++`
-2. Valgrind and GDB, or other debugging tools
+2. Valgrind and GDB/LLDB, or other debugging tools
 
 ### Recommended Materials
 *Coming soon!*
 
 ### Contact
-Send me an email at nbrowne [at] ucsd [dot] edu or at natebrowne [at] outlook
+Send me an email at nbrowne [at] ucsd [dot] edu or at npcompletenate [at] protonmail
 [dot] com if you have any suggestions/fixes/other stuff like that.

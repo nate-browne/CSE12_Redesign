@@ -126,6 +126,10 @@ bool stack<T>::empty(void) {
   return this->vec->size();
 }
 
+.
+.
+.
+
 #endif
 ```
 
