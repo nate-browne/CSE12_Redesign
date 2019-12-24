@@ -18,7 +18,7 @@ TBD | Trees | [link](./Lectures/Trees.md)
 TBD | Rebalancing BSTs | [link](./Lectures/rebalancing.md)
 TBD | **Midterm 2** (Hashing to Rebalancing Trees) |
 TBD | Heaps and Priority Queues | [link](./Lectures/heaps_pqs.md)
-TBD | Standard Libraries (the `STL` and `java.util`) | [link](./Lectures/libraries.md)
+TBD | Standard Libraries (the C++ `STL`) | [link](./Lectures/libraries.md)
 TBD | contd. |
 TBD | Final Exam Review | [link](./Lectures/review.md)
 TBD | contd.
