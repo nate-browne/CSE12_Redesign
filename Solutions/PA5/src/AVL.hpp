@@ -1,8 +1,6 @@
 #ifndef AVL_HPP
 #define AVL_HPP
 
-#include <algorithm>
-
 #include "BST.hpp"
 
 #define THRESHOLD 1
@@ -11,8 +9,7 @@ namespace cse12_ds {
 
   template <class T>
   class AVL : public BST<T> {
-    int height(typename BST<T>::BSTNode *t) const;
-    void balance(typename BST<T>::BSTNode *& t);
+    void balance(typename BST<T>::BSTNode *& t) override;
     void rotate_left(typename BST<T>::BSTNode *& t);
     void double_left(typename BST<T>::BSTNode *& t);
     void rotate_right(typename BST<T>::BSTNode *& t);
@@ -25,11 +22,6 @@ namespace cse12_ds {
     void insert(const T & x) override;
     void remove(const T & x) override;
   };
-
-  template <class T>
-  int AVL<T>::height(typename BST<T>::BSTNode *t) const {
-    return (t) ? t->height : -1;
-  }
 
   template <class T>
   void AVL<T>::balance(typename BST<T>::BSTNode *& t) {

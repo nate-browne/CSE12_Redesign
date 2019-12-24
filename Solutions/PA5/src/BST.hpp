@@ -4,6 +4,8 @@
 #include <cstdio>
 #include <cstdlib>
 
+#include <algorithm>
+
 #include <iostream>
 #include <exception>
 
@@ -23,6 +25,8 @@ namespace cse12_ds {
     };
 
     BSTNode *root;
+    virtual int height(BSTNode *t) const;
+    virtual void balance(BSTNode *& t);
     virtual void insert(const T & x, BSTNode *& t);
     virtual void remove(const T & x, BSTNode *& t);
     virtual BSTNode * find_min(BSTNode *t) const;
@@ -48,10 +52,24 @@ namespace cse12_ds {
   };
 
   template <class T>
+  int BST<T>::height(BSTNode *t) const {
+    return (t) ? t->height : -1;
+  }
+
+  template <class T>
+  void BST<T>::balance(BSTNode *& t) {
+    if(!t) return;
+
+    t->height = std::max(this->height(t->left), this->height(t->right)) + 1;
+  }
+
+  template <class T>
   void BST<T>::insert(const T & x, BSTNode *& t) {
     if(!t) t = new BSTNode(x, nullptr, nullptr);
     else if(x < t->element) this->insert(x, t->left);
     else if(t->element < x) this->insert(x, t->right);
+
+    this->balance(t);
   }
 
   template <class T>
@@ -67,6 +85,8 @@ namespace cse12_ds {
       t = (t->left) ? t->left : t->right;
       delete old;
     }
+
+    this->balance(t);
   }
 
   template <class T>
