@@ -46,7 +46,7 @@ What is CSE 12 _not_ about?
 * We will be covering many of the similarities and differences between the languages so that you are
 able to hit the ground running with these assignments.
 
-* C++ is a procedural, functional, object-oriented, statically typed programming language.
+* C++ is a procedural, functional, object-oriented, statically typed (but somewhat weakly typed) programming language.
   - Developed by Bjarne Stroustrup in 1985 at Bell Labs
 * It is used frequently in desktop application development, game development, animation
 (Pixar's tools are built in C++), operating systems, compilers...

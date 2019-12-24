@@ -9,20 +9,19 @@
 namespace cse12_ds {
 
   template <class T>
-  class node {
-   public:
-    node *pre, *next;
-    T data;
-    node(const T & data) : pre(nullptr), next(nullptr) {
-      this->data = data;
-    }
-    ~node(void) { }
-  };
-
-  template <class T>
   class list {
    private:
-    node<T> *_front, *_back;
+
+    struct node {
+      node *pre, *next;
+      T data;
+      node(const T & data) : pre(nullptr), next(nullptr) {
+        this->data = data;
+      }
+      ~node(void) { }
+    };
+
+    node *_front, *_back;
     size_t num_elements;
 
     bool start_from_back(size_t position) {
@@ -56,7 +55,7 @@ namespace cse12_ds {
     }
 
     void push_front(const T & val) {
-      node<T> *tmp = new node<T>(val);
+      node *tmp = new node(val);
 
       if(!_front) {
         this->_front = tmp;
@@ -70,7 +69,7 @@ namespace cse12_ds {
     }
 
     void pop_front(void) {
-      node<T> *tmp = this->_front;
+      node *tmp = this->_front;
       this->_front = this->_front->next;
       delete tmp;
       --num_elements;
@@ -81,7 +80,7 @@ namespace cse12_ds {
     }
 
     void push_back(const T & val) {
-      node<T> *tmp = new node<T>(val);
+      node *tmp = new node(val);
 
       if(!_back) {
         this->_back = tmp;
@@ -95,7 +94,7 @@ namespace cse12_ds {
     }
 
     void pop_back(void) {
-      node<T> *tmp = this->_back;
+      node *tmp = this->_back;
       this->_back = this->_back->pre;
       delete tmp;
       --num_elements;
@@ -106,11 +105,11 @@ namespace cse12_ds {
     }
 
     void insert(const size_t position, const T & val) {
-      node<T> *finder;
-      node<T> *tmp;
+      node *finder;
+      node *tmp;
 
       if(!position || position == this->size() - 1) {
-        tmp = new node<T>(val);
+        tmp = new node(val);
         switch(position) {
           case 0:
             tmp->next = this->_front;
@@ -139,7 +138,7 @@ namespace cse12_ds {
           }
         }
 
-        tmp = new node<T>(val);
+        tmp = new node(val);
         tmp->next = finder;
         tmp->pre = finder->pre;
         finder->pre->next = tmp;
@@ -164,7 +163,7 @@ namespace cse12_ds {
         --num_elements;
         return (position == 0) ? this->_front->data : this->_back->data;
       } else {
-        node<T> *finder;
+        node *finder;
         if(start_from_back(position)) {
           size_t counter = 0;
           finder = this->_back;
@@ -186,8 +185,8 @@ namespace cse12_ds {
     }
 
     void clear(void) noexcept {
-      node<T> *tmp = this->_front;
-      node<T> *nt = this->_front->next;
+      node *tmp = this->_front;
+      node *nt = this->_front->next;
       while(tmp) {
         delete tmp;
         tmp = nt;

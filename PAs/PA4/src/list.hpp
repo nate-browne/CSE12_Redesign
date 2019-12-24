@@ -9,20 +9,18 @@
 namespace cse12_ds {
 
   template <class T>
-  class node {
-   public:
-    node *pre, *next;
-    T data;
-    node(const T & data) : pre(nullptr), next(nullptr) {
-      this->data = data;
-    }
-    ~node(void) { }
-  };
-
-  template <class T>
   class list {
    private:
-    node<T> *_front, *_back;
+    struct node {
+      node *pre, *next;
+      T data;
+      node(const T & data) : pre(nullptr), next(nullptr) {
+        this->data = data;
+      }
+      ~node(void) { }
+    };
+
+    node *_front, *_back;
     size_t num_elements;
 
     bool start_from_back(size_t position) {

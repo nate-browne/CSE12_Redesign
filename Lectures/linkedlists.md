@@ -42,6 +42,100 @@ They rely on probability to provide better than linear time lookup and insertion
 
 You can read more about them <a href="https://en.wikipedia.org/wiki/Skip_list" target="_blank">here</a>
 
+Before looking at implementation, let's discuss a feature of OOP: <a href="https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)" target="_blank">Encapsulation</a>.
+
+## C++ Feature (OOP Feature): Encapsulation
+The idea behind encapsulation is that we bundle up the data with the methods that operate on it into one package.
+Classes are a natural extension of this.
+
+In object-oriented languages, encapsulation provides mechanisms for *data hiding*: the ability to restrict
+access or visibility of parts of classes.
+
+You should be familiar with this from Java, so let's compare and contrast two basic classes to see how C++ implements data hiding.
+
+```java
+public class Example {
+  private class Inner {
+    private int count;
+    public Inner() {
+      this(0);
+    }
+
+    public Inner(int count) {
+      this.count = count;
+    }
+  }
+  private Inner base;
+  private boolean seen;
+  public int count;
+  public Example() {
+    this.count = 0;
+    base = new Inner();
+  }
+  public Example(int count) {
+    this.count = count;
+    base = new Inner(count);
+  }
+
+  private void setSeen(boolean value) {
+    this.seen = value;
+  }
+
+  public void setSeenFalse() {
+    this.setSeen(false);
+  }
+
+  public void setSeenTrue() {
+    this.setSeen(true);
+  }
+}
+```
+This is pretty standard, besides the useless methods :)
+
+We're using the idea of `public` and `private` to make some things visible from oustide the class and some things not visible.
+
+Here's the equivalent C++ class:
+
+```cpp
+class Example {
+  struct Inner {
+   private:
+    int count;
+   public:
+    Inner(int count = 0) {
+      this->count = count;
+    }
+  };
+  Inner *base;
+  bool seen;
+  void set_seen(bool value) {
+    this->seen = value;
+  }
+ public:
+  int count;
+  Example(void) {
+    this->count = 0;
+    base = new Inner();
+  }
+  Example(int count) {
+    this->count = count;
+    base = new Inner(count);
+  }
+  ~Example(void) {
+    delete base;
+  }
+  void set_seen_false(void) {
+    this->set_seen(false);
+  }
+  void set_seen_true(void) {
+    this->set_seen(true);
+  }
+};
+```
+
+What are some similarities? What are some differences?
+
+We'll talk more about access modifiers and inheritance in C++ a bit more in a couple lectures when we talk about binary trees, as the topic will be more relevant for that PA.
 
 ## Implementation
 Let's look at implementing a simple singly-linked list class in C++ that will only hold integers, starting with the `node` class.
@@ -52,16 +146,18 @@ Let's look at implementing a simple singly-linked list class in C++ that will on
 
 #include <iostream>
 
-class node {
- public:
-  node *next;
-  int data;
-  node(const int data) : next(nullptr) {
-    this->data = data;
-  }
-  ~node(void) { }
+class list {
+ private:
+  class node {
+   public:
+    node *next;
+    int data;
+    node(const int data) : next(nullptr) {
+      this->data = data;
+    }
+    ~node(void) { }
+  };
 };
-
 .
 .
 .
@@ -70,7 +166,7 @@ class node {
 ```
 There's not much to note here; the class does very little.
 
-However, notice that the fields are public. How else could we have done this to better have provided <a href="https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)" target="_blank">encapsulation?</a>
+However, notice that the fields of the node are public. How else could we have done this to better have provided encapsulation?
 
 Next, the list itself:
 
@@ -80,6 +176,16 @@ Next, the list itself:
 .
 
 class list {
+ private:
+  class node {
+   public:
+    node *next;
+    int data;
+    node(const int data) : next(nullptr) {
+      this->data = data;
+    }
+    ~node(void) { }
+  };
   node *_front;
   size_t num_elements;
  public:

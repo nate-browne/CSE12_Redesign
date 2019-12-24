@@ -1,4 +1,5 @@
 # ArrayLists and Vectors
+### Chapter 3 of _Data Structures and Algorithm Analysis in C++_
 
 ![arraylist](../images/arraylist.png)
 
@@ -199,7 +200,7 @@ What's the runtime of...
 
 
 To fully understand the runtime of `push_back`, wait until an advanced algorithms class where *amortization* is discussed. We won't
-cover that now :)
+cover that now :), but you can read about it in chapter 11!
 
 ## When should we use a Vector versus an array?
 
