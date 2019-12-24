@@ -21,9 +21,9 @@ int main(void) {
   char opt;
   std::cout << "Starting automated tests..." << std::endl;
 
-  BST<int> *t1 = nullptr, *t2 = nullptr;
+  cse12_ds::BST<int> *t1 = nullptr, *t2 = nullptr;
 
-  t1 = new BST<int>();
+  t1 = new cse12_ds::BST<int>();
   assert(t1); // make sure the constructor worked
   assert(t1->is_empty());
 
@@ -46,7 +46,7 @@ int main(void) {
   t1->insert(1);
   t1->insert(3);
 
-  t2 = new AVL<int>(*t1); // try using the copy constructor
+  t2 = new cse12_ds::AVL<int>(*t1); // try using the copy constructor
 
   assert(t2); // shouldn't be null still
   t2->insert(4);
@@ -72,7 +72,7 @@ int main(void) {
   std::cout << "The driver will now go into interactive mode." << std::endl;
   std::cout << "The datatype will be std::string." << std::endl;
 
-  BST<std::string> *tree = nullptr;
+  cse12_ds::BST<std::string> *tree = nullptr;
 
   std::cout << std::endl << "(A)VL or (B)ST?: ";
   std::cin >> opt;
@@ -82,10 +82,10 @@ int main(void) {
 
   switch(opt) {
     case 'A':
-      tree = new AVL<std::string>();
+      tree = new cse12_ds::AVL<std::string>();
       break;
     case 'B':
-      tree = new BST<std::string>();
+      tree = new cse12_ds::BST<std::string>();
       break;
     default:
       die("Invalid Tree option given.");
