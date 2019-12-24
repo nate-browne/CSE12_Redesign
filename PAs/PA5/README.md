@@ -1,4 +1,4 @@
-# Rebalancing BSTs
+# Rebalancing BSTs (XXX points)
 ### Due: TBD
 
 ### Overview
