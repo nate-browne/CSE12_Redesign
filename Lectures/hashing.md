@@ -99,6 +99,6 @@ Most languages feature support for these structures built into their libraries:
 * C++: `std::unordered_set` and `std::unordered_map`
 
 
-That's all folks! Good luck on your midterm, and next time, [Binary Search Trees](./rebalancing.md)
+That's all folks! Good luck on your midterm, and next time, [Binary Search Trees](./Trees.md)
 
 [back](../lectures.md)
