@@ -46,22 +46,15 @@ with a few modifications/simplifications. In general though, you can just follow
 ### Naming
 12. Constants/Macros
   * These should be UPPER_SNAKE_CASE.
-13. Classes/Structs
-  * Since we're naming our data structures like the ones found in `stl`, they should be all lower_case_snake_case.
-14. Functions
-  * These should be UpperCamelCase, and should contain a verb (e.g. `CalculatePredecessor`)
-  * _**Exception**_: accessor/mutator methods (getters and setters) can be named like the variable (e.g. `get_count`)
-15. File Names
-  * These should be snake_case (lowercase with underscores).
-16. Variable Names
+13. Variable Names
   * Like file names, these should be snake_case. Don't use lowerCamelCase
-17. Namespaces
+14. Namespaces
   * These should be all lowercase (e.g. `std::` and `test_utils`)
 
 ### Comments
-18. File Headers
+15. File Headers
   * Every file needs a header containing name, account number, date, assignment number, sources of help, and a short description. The formatting can be however you want, though. 
-19. Class Headers
+16. Class Headers
   * Every class needs a header explaining the usage, methods, and purpose. Formatting can be however you want as long as all of the information is present and it doesn't look bad.
-20. Commenting in Methods
+17. Commenting in Methods
   * Avoid overcommenting. Make sure you comment big ideas as well as particularly confusing bits of your code, but assume your reader understands advanced C++ (cause they do) so you don't need to comment bits like `x++`.

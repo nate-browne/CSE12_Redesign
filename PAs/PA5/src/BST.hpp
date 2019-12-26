@@ -13,13 +13,13 @@ namespace cse12_ds {
 
   template <class T>
   class BST {
-  protected:
+   protected:
     struct BSTNode {
       T element;
       BSTNode *left, *right;
       int height;
-      BSTNode(const T & el, BSTNode *lt, BSTNode *rt, int height = 0) : element(el), left(lt), right(rt) {
-        this->height = height;
+      BSTNode(const T & el, BSTNode *lt = nullptr, BSTNode *rt = nullptr) : element(el), left(lt), right(rt) {
+        this->height = 0;
       }
       ~BSTNode(void) { }
     };
@@ -35,7 +35,7 @@ namespace cse12_ds {
     virtual void print(std::ostream & out, BSTNode *t) const;
     virtual void empty(BSTNode *& t);
     virtual BSTNode * clone(BSTNode *t) const;
-  public:
+   public:
     BST(void);
     BST(const BST & rhs);
     virtual ~BST(void);

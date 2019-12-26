@@ -16,7 +16,7 @@ namespace cse12_ds {
     void double_right(typename BST<T>::BSTNode *& t);
     void insert(const T & x, typename BST<T>::BSTNode *& t) override;
     void remove(const T & x, typename BST<T>::BSTNode *& t) override;
-  public:
+   public:
     AVL(void);
     AVL(const BST<T> & rhs);
     void insert(const T & x) override;

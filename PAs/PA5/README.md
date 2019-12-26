@@ -82,42 +82,42 @@ First, the BST:
    * This function performs an in-order traversal printing contents of each node.
    * Given to you.
 9.  `void BST<T::empty(BSTNode *& t);`
-   * This function empties the tree starting from node `t`.
-   * Use a traversal! (which one?)
-   * **Be sure to set `t = nullptr;` at the end!**
-11. `typename BST<T>::BSTNode * BST<T>::clone(BSTNode *t) const;`
-   * This function makes and returns a clone of the tree node by node starting from node `t`.
-   * This function **must be recursive**.
-   * Look at the `BSTNode` constructor for hints on what to pass as the 2nd and 3rd actual argument.
-12. `BST<T>::BST(void)`
+    * This function empties the tree starting from node `t`.
+    * Use a traversal! (which one?)
+    * **Be sure to set `t = nullptr;` at the end!**
+10. `typename BST<T>::BSTNode * BST<T>::clone(BSTNode *t) const;`
+    * This function makes and returns a clone of the tree node by node starting from node `t`.
+    * This function **must be recursive**.
+    * Look at the `BSTNode` constructor for hints on what to pass as the 2nd and 3rd actual argument.
+11. `BST<T>::BST(void)`
     * Default constructor. Given.
-13. `BST<T>::BST(const BST & rhs);`
+12. `BST<T>::BST(const BST & rhs);`
     * Copy constructor.
     * Should just set `root` to the result of a protected helper function call (which one?)
-14. `BST<T>::~BST(void);`
+13. `BST<T>::~BST(void);`
     * Destructor.
     * Should just call a protected helper function (which one?)
-15. `typename BST<T>::BSTNode * BST<T>::get_root(void) const;`
+14. `typename BST<T>::BSTNode * BST<T>::get_root(void) const;`
     * One line function to return the root
-16. `const T & BST<T>::find_min(void) const;`
+15. `const T & BST<T>::find_min(void) const;`
     * Calls the protected `find_min` and returns the value, or throws an exception if the tree is empty.
     * Given.
-17. `const T & BST<T>::find_max(void) const;`
+16. `const T & BST<T>::find_max(void) const;`
     * Calls the protected `find_max` and returns the value, or throws an exception if the tree is empty.
     * Given.
-18. `bool BST<T>::contains(const T & x) const;`
+17. `bool BST<T>::contains(const T & x) const;`
     * Public interface method for `contains`.
     * Should call protected `contains` function starting from `root`.
-19. `bool BST<T>::is_empty(void) const`
+18. `bool BST<T>::is_empty(void) const`
     * Checks if tree is empty.
     * Easy one-line function.
-20. `void BST<T>::print(void) const`
+19. `void BST<T>::print(void) const`
     * Calls the protected `print` function starting from `root`.
-21. `void BST<T>::empty(void)`
+20. `void BST<T>::empty(void)`
     * Calls the protected `empty` function starting from `root`.
-22. `void BST<T>::insert(const T & x)`
+21. `void BST<T>::insert(const T & x)`
     * Calls the protected `insert` function starting from `root`.
-23. `void BST<T>::remove(const T & x)`
+22. `void BST<T>::remove(const T & x)`
     * Calls the protected `remove` function starting from `root`.
 
 Second, the AVL:
@@ -158,5 +158,12 @@ Second, the AVL:
 3. Though iteration or recursion can be used for most of the functions, some functions are more easily implemented via one method or the other. Draw it out by hand to see which you want to do which way.
 4. The weird constructor syntax for the `BSTNode` makes writing `clone` a bit easier. Why would that be, and how does that relate to making `clone` recursive?
 5. Remember that the predecessor is the largest node in any given node's left subtree.
+6. Most functions can be written recursively following this methodology
+   1. Handle base/edge cases
+   2. Make sure you're on the correct node to be performing the current action
+   3. Perform action, clean up
+
+    For example, for the protected `insert` method your base case is handling if the `BSTNode *& t` parameter is `nullptr`. Making sure you're on the correct node is checking if `x` is less than `t->element` or if `t->element` is less than `x`, and recursively inserting if that is the case. Lastly, cleaning up is setting the height by calling `this->balance(t)`.
+7. Start by intuitively figuring out what to do! How would you accomplish each task by hand? What cases do you have to handle?
 
 # Good luck! Start Early, Test Often, and Finish Early!
