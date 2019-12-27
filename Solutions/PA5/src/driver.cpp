@@ -153,7 +153,7 @@ int main(void) {
           m_val = tree->find_min();
           std::cout << "Min value is \"" << m_val << "\"" << std::endl;
         } catch(std::out_of_range & ex) {
-          std::cout << "Tree has no elements" << std::endl;
+          std::cout << ex.what() << std::endl;
         }
         break;
       case 'm':
@@ -161,7 +161,7 @@ int main(void) {
           m_val = tree->find_max();
           std::cout << "Max value is \"" << m_val << "\"" << std::endl;
         } catch(std::out_of_range & ex) {
-          std::cout << "Tree has no elements" << std::endl;
+          std::cout << ex.what() << std::endl;
         }
         break;
       default:

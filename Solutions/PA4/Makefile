@@ -1,6 +1,7 @@
 CXXFLAGS=
 LDFLAGS=
 LINKFLAGS=-std=c++11 -Wall -pedantic -Wextra
+LEAKER=
 
 ifeq ($(type),opt)
  	CXXFLAGS=-O3 -Wall -pedantic -Wextra -std=c++11 -c
@@ -13,9 +14,11 @@ endif
 UNAME := $(shell uname)
 ifeq ($(UNAME),Linux)
 	DEBUGGER=gdb
+	LEAKER=valgrind --leak-check=full --read-var-info=yes --show-reachable=yes
 else
-ifeq ($(UNAME), Darwin)
+ifeq ($(UNAME),Darwin)
 	DEBUGGER=lldb
+	LEAKER=leaks -quiet -atExit -- 
 endif
 endif
 
@@ -24,6 +27,11 @@ new:
 
 debug: build
 	$(DEBUGGER) bin/driver
+
+memcheck: build
+	MallocStackLogging=1
+	$(LEAKER) bin/driver
+	unset MallocStackLogging
 
 prog: build 
 	bin/driver

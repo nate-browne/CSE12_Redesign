@@ -29,32 +29,32 @@ namespace cse12_ds {
       delete [] this->arr;
     }
 
-    size_t size(void) {
+    size_t size(void) const {
       return this->num_elems;
     }
 
-    size_t capacity(void) {
+    size_t capacity(void) const {
       return this->_size;
     }
 
-    bool empty(void) {
+    bool empty(void) const {
       return this->num_elems == 0;
     }
 
-    T & operator[](int pos) {
+    T & operator[](int pos) const {
       return this->arr[pos];
     }
 
-    T & at(unsigned int pos) {
+    T & at(unsigned int pos) const {
       if(pos < 0 || pos >= this->size()) throw std::out_of_range(ERR_STR);
       return this->arr[pos];
     }
 
-    T & front(void) {
+    T & front(void) const {
       return this->arr[0];
     }
 
-    T & back(void) {
+    T & back(void) const {
       return this->arr[this->size() - 1];
     }
 

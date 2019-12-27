@@ -13,19 +13,19 @@ namespace cse12_ds {
     queue(void) { }
     ~queue(void) { }
 
-    bool empty(void) {
+    bool empty(void) const {
       return _queue.empty();
     }
 
-    size_t size(void) {
+    size_t size(void) const {
       return _queue.size();
     }
 
-    T & front(void) {
+    T & front(void) const {
       return _queue.front();
     }
 
-    T & back(void) {
+    T & back(void) const {
       return _queue.back();
     }
 

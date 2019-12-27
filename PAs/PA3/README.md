@@ -12,7 +12,7 @@ You will need to copy over your `vector.hpp` from PA2 for use in both `queue.hpp
 Your implementations should go in `queue.hpp` and `stack.hpp`, under the `cse12_ds` namespace (this has been set up for you).
 
 #### Compilation and Testing
-To compile, use the provided Makefile. If you just want to build the program, run `make build`. If you want to build and run, use `make prog`. For debugging, run `make debug`.
+To compile, use the provided Makefile. If you just want to build the program, run `make build`. If you want to build and run, use `make prog`. For debugging, run `make debug`. For memory leaks, run `make memcheck`.
 
 Like before, you are responsible for testing your program fully. We provide a driver for you to use, but you still have to verify correctness to ensure a good grade.
 
@@ -26,36 +26,66 @@ You will be re-implementing the [queue](https://en.cppreference.com/w/cpp/contai
 *Do note that you don't have to implement them in this order*
 
 * Stack
-  1. `stack(void)`
+  1. ```cpp
+      stack(void);
+      ```
      * This is a constructor for the stack.
-  2. `~stack(void)`
+  2. ```cpp
+      ~stack(void);
+      ```
      * This is a destructor for the stack.
-  3. `bool empty(void)`
+  3. ```cpp
+      bool empty(void) const;
+      ```
      * Returns `true` if the stack is empty, `false` otherwise.
-  4. `size_t size(void)`
+  4. ```cpp
+      size_t size(void) const;
+      ```
      * Returns the number of elements in the stack.
-  5. `T & top(void)`
+  5. ```cpp
+      T & top(void) const;
+      ```
      * Returns the element at the top of the stack.
-  6. `void push(const T & item)`
+  6. ```cpp
+      void push(const T & item);
+      ```
      * Adds a new element to the top of the stack.
-  7. `void pop(void)`
+  7. ```cpp
+      void pop(void);
+      ```
      * Removes (but does not return) the element at the top of the stack.
 * Queue
-  1. `queue(void)`
+  1. ```cpp
+      queue(void);
+      ```
      * This is a constructor for the queue.
-  2. `~queue(void)`
+  2. ```cpp
+      ~queue(void);
+      ```
      * This is a destructor for the queue.
-  3. `bool empty(void)`
+  3. ```cpp
+      bool empty(void) const;
+      ```
      * Returns `true` if the queue is empty, `false` otherwise.
-  4. `size_t size(void)`
+  4. ```cpp
+      size_t size(void) const;
+      ```
      * Returns the number of elements in the queue.
-  5. `T & front(void)`
+  5. ```cpp
+      T & front(void) const;
+      ```
      * Returns the element at the front of the queue.
-  6. `T & back(void)`
+  6. ```cpp
+      T & back(void) const;
+      ```
      * Returns the element at the back of the queue.
-  7. `void push(const T & item)`
+  7. ```cpp
+      void push(const T & item);
+      ```
      * Adds a new element to the end of the queue.
-  8. `void pop(void)`
+  8.  ```cpp
+      void pop(void);
+      ```
      * Removes (but does not return) the element at the front of the queue.
 #### Implementation Tips
 1. If your vector class is correct, you should hardly have any code to write here.

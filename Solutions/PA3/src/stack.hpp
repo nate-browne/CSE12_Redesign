@@ -13,15 +13,15 @@ namespace cse12_ds {
     stack(void) { }
     ~stack(void) { }
 
-    bool empty(void) {
+    bool empty(void) const {
       return _stack.empty();
     }
 
-    size_t size(void) {
+    size_t size(void) const {
       return _stack.size();
     }
 
-    T & top(void) {
+    T & top(void) const {
       return _stack.back();
     }
 

@@ -21,7 +21,9 @@ There are test cases that we do not provide in the tester that we will be runnin
 
 #### Problem 1: GradeAssignment
 
-`std::string GradeAssignment(int score);`
+```cpp
+std::string GradeAssignment(int score);
+```
 
 For this problem, your goal is to write a function that, given a score, returns a corresponding string.
 The strings are provided in `pa1.hpp`; **any non-exact matches will result in 0 points on that test case.**
@@ -32,7 +34,9 @@ Sample Input | Sample Output
 
 #### Problem 2: ReplaceLetter
 
-`std::string ReplaceLetter(const std::string & to_replace, const char replacee, const char replacer);`
+```cpp
+std::string ReplaceLetter(const std::string & to_replace, const char replacee, const char replacer);
+```
 
 For this problem, your goal is to write a function that takes a string and returns a different string where
 each occurence of the `replacee` char in the original string is replaced by the `replacer`.
@@ -44,7 +48,9 @@ Sample Input | Sample Output
 
 #### Problem 3: AverageScore
 
-`double AverageScore(const double scores[], int num_elements);`
+```cpp
+double AverageScore(const double scores[], int num_elements);
+```
 
 For this problem, you are to compute the average of the scores array and return it.
 *Note: C-style arrays (so not `std::array`) do not track their own length, which is what `num_elements` is for*.

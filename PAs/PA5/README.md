@@ -7,7 +7,9 @@
 In this PA, you will use the object-oriented principles of encapsulation and inheritance to create a binary search tree as well as an AVL tree. The main bulk of your code will be in `BST.hpp`, with some methods overridden in `AVL.hpp`.
 
 This code make heavy use of some C++ concepts you've probably never seen before, which are explained below:
-1. `virtual`.
+1. ```cpp
+   virtual
+   ```
    * C++, by default, uses static binding. By contrast, Java uses dynamic binding <a href="https://en.wikipedia.org/wiki/Name_binding#Binding_time" target="_blank">(read about them here).</a>
    * Static binding means that the exact function to be run is known at *compile time*.
    * In dynamic binding, at compile time the compiler only knows the *type of the pointer (C++) or reference (Java)* while at runtime it knows the *declared type*. Using Java as a familiar example:
@@ -19,9 +21,13 @@ This code make heavy use of some C++ concepts you've probably never seen before,
        run time: ref is a `Snow`
    * The `virtual` keyword changes the binding for the following function from static to dynamic in C++.
      * This is necessary for <a href="https://en.wikipedia.org/wiki/Virtual_function" target="_blank">virtual function run-time polymorphism.</a>
-2. `override`
+2. ```cpp
+   override
+   ```
    * Similar to Java's `@Override` annotation, this allows the compiler to emit errors for incorrect function overriding.
-3. `typename BST<T>::BSTNode`
+3. ```cpp
+   typename BST<T>::BSTNode
+   ```
    * This is necessary to be able to reference the `protected BSTNode` field from public deriving subclass.
 4. Default arguments (see `BST.hpp:42`)
    * This, effectively, provides function overloading. Without the argument supplied, the default one provided is used.
@@ -30,7 +36,7 @@ This code make heavy use of some C++ concepts you've probably never seen before,
 
 
 #### Compilation and Testing
-To compile, use the provided Makefile. If you just want to build the program, run `make build`. If you want to build and run, use `make prog`. For debugging, run `make debug`.
+To compile, use the provided Makefile. If you just want to build the program, run `make build`. If you want to build and run, use `make prog`. For debugging, run `make debug`. For memory leaks, run `make memcheck`.
 
 Like before, you are responsible for testing your program fully. We provide a driver for you to use, but you still have to verify correctness to ensure a good grade. This time, the driver performs unit testing before getting to the interactive portion.
 While these tests aren't totally comprehensive, passing them all will give a good indication of how much progress you've made.
@@ -53,103 +59,169 @@ Keep this in mind if you write custom objects to use for testing.
 
 #### The Functions, Described
 First, the BST:
-1. `virtual int BST<T>::height(BSTNode *t) const;`
+1. ```cpp
+   virtual int BST<T>::height(BSTNode *t) const;
+   ```
    * Calculates the height of the given node `t`.
    * Given.
-2. `virtual void BST<T>::balance(BSTNode *& t);`
+2. ```cpp
+   virtual void BST<T>::balance(BSTNode *& t);
+   ```
    * Updates the height of `t`
    * Given.
-3. `void BST<T>::insert(const T & x, BSTNode *& t);`
+3. ```cpp
+   void BST<T>::insert(const T & x, BSTNode *& t);
+   ```
    * This function inserts value `x` into the tree starting from node `t`.
    * It can be written iteratively or recursively, with the recursive implementation being simpler.
    * Duplicate insertions should be ignored.
-4. `void BST<T>::remove(const T & x, BSTNode *& t);`
+4. ```cpp
+   void BST<T>::remove(const T & x, BSTNode *& t);
+   ```
    * This function removes value `x` from the tree starting from node `t`.
    * It can be written iteratively or recursively, with the recursive implementation being simpler.
    * You will have to handle the case of having two children. Use the predecessor node strategy for data replacement.
      * This can be implemented with two function calls.
-5. `typename BST<T>::BSTNode * BST<T>::find_min(BSTNode *t) const;`
+5. ```cpp
+   typename BST<T>::BSTNode * BST<T>::find_min(BSTNode *t) const;
+   ```
    * This function finds the smallest element for the given tree starting from node `t`.
    * It can be written iteratively or recursively. Both implementations are pretty simple and equally as fast when optimized by the compiler.
-6. `typename BST<T>::BSTNode * BST<T>::find_max(BSTNode *t) const;`
+6. ```cpp
+   typename BST<T>::BSTNode * BST<T>::find_max(BSTNode *t) const;
+   ```
    * This function finds the largest element for the given tree starting from node `t`.
    * It can be written iteratively or recursively. Both implementations are pretty simple and equally as fast when optimized by the compiler.
-7. `bool BST<T>::contains(const T & x, BSTNode *t) const;`
+7. ```cpp
+   bool BST<T>::contains(const T & x, BSTNode *t) const;
+   ```
    * This function checks if the tree starting from node `t` contains element `x`.
    * It can be written iteratively or recursively, with the recursive implementation being simpler.
    * _**DO NOT**_ use `operator ==`! (how can you check for equality?)
-8. `void BST<T>::print(std::ostream & out, BSTNode *t) const;`
+8. ```cpp
+   void BST<T>::print(std::ostream & out, BSTNode *t) const;
+   ```
    * This function performs an in-order traversal printing contents of each node.
    * Given to you.
-9.  `void BST<T::empty(BSTNode *& t);`
+9.  ```cpp
+    void BST<T::empty(BSTNode *& t);
+    ```
     * This function empties the tree starting from node `t`.
     * Use a traversal! (which one?)
     * **Be sure to set `t = nullptr;` at the end!**
-10. `typename BST<T>::BSTNode * BST<T>::clone(BSTNode *t) const;`
+10. ```cpp
+    typename BST<T>::BSTNode * BST<T>::clone(BSTNode *t) const;
+    ```
     * This function makes and returns a clone of the tree node by node starting from node `t`.
     * This function **must be recursive**.
     * Look at the `BSTNode` constructor for hints on what to pass as the 2nd and 3rd actual argument.
-11. `BST<T>::BST(void)`
+11. ```cpp
+    BST<T>::BST(void)
+    ```
     * Default constructor. Given.
-12. `BST<T>::BST(const BST & rhs);`
+12. ```cpp
+    BST<T>::BST(const BST & rhs);
+    ```
     * Copy constructor.
     * Should just set `root` to the result of a protected helper function call (which one?)
-13. `BST<T>::~BST(void);`
+13. ```cpp
+    BST<T>::~BST(void);
+    ```
     * Destructor.
     * Should just call a protected helper function (which one?)
-14. `typename BST<T>::BSTNode * BST<T>::get_root(void) const;`
+14. ```cpp
+    typename BST<T>::BSTNode * BST<T>::get_root(void) const;
+    ```
     * One line function to return the root
-15. `const T & BST<T>::find_min(void) const;`
+15. ```cpp
+    const T & BST<T>::find_min(void) const;
+    ```
     * Calls the protected `find_min` and returns the value, or throws an exception if the tree is empty.
     * Given.
-16. `const T & BST<T>::find_max(void) const;`
+16. ```cpp
+    const T & BST<T>::find_max(void) const;
+    ```
     * Calls the protected `find_max` and returns the value, or throws an exception if the tree is empty.
     * Given.
-17. `bool BST<T>::contains(const T & x) const;`
+17. ```cpp
+    bool BST<T>::contains(const T & x) const;
+    ```
     * Public interface method for `contains`.
     * Should call protected `contains` function starting from `root`.
-18. `bool BST<T>::is_empty(void) const`
+18. ```cpp
+    bool BST<T>::is_empty(void) const
+    ```
     * Checks if tree is empty.
     * Easy one-line function.
-19. `void BST<T>::print(void) const`
+19. ```cpp
+    void BST<T>::print(void) const
+    ```
     * Calls the protected `print` function starting from `root`.
-20. `void BST<T>::empty(void)`
+20. ```cpp
+    void BST<T>::empty(void)
+    ```
     * Calls the protected `empty` function starting from `root`.
-21. `void BST<T>::insert(const T & x)`
+21. ```cpp
+    void BST<T>::insert(const T & x)
+    ```
     * Calls the protected `insert` function starting from `root`.
-22. `void BST<T>::remove(const T & x)`
+22. ```cpp
+    void BST<T>::remove(const T & x)
+    ```
     * Calls the protected `remove` function starting from `root`.
 
 Second, the AVL:
-1. `void AVL<T>::balance(typename BST<T>::BSTNode *& t) override;`
+1. ```cpp
+   void AVL<T>::balance(typename BST<T>::BSTNode *& t) override;
+   ```
    * Function that checks the heights and determines if the node `t` needs to be rotated.
    * You should use <a href="https://en.cppreference.com/w/cpp/algorithm/max" target="_blank">`std::max` from the algorithm header</a> to set the height of `t` before returning.
-2. `void AVL<T>::rotate_left(typename BST<T>::BSTNode *& t);`
+2. ```cpp
+   void AVL<T>::rotate_left(typename BST<T>::BSTNode *& t);
+   ```
    * Performs a left rotation starting from `t`.
-3. `void AVL<T>::double_left(typename BST<T>::BSTNode *& t);`
+3. ```cpp
+   void AVL<T>::double_left(typename BST<T>::BSTNode *& t);
+   ```
    * Performs a double left rotation starting from `t`.
    * Should be implemented with two function calls.
-4. `void AVL<T>::rotate_right(typename BST<T>::BSTNode *& t);`
+4. ```cpp
+   void AVL<T>::rotate_right(typename BST<T>::BSTNode *& t);
+   ```
    * Performs a right rotation starting from `t`.
-5. `void AVL<T>::double_right(typename BST<T>::BSTNode *& t);`
+5. ```cpp
+   void AVL<T>::double_right(typename BST<T>::BSTNode *& t);
+   ```
    * Performs a double right rotation starting from `t`.
    * Should be implemented with two function calls.
-6. `void AVL<T>::insert(const T & x, typename BST<T>::BSTNode *& t) override;`
+6. ```cpp
+   void AVL<T>::insert(const T & x, typename BST<T>::BSTNode *& t) override;
+   ```
    * Override the protected `BST` insert method.
    * Should be identical.
-7. `void AVL<T>::remove(const T & x, typename BST<T>::BSTNode *& t) override;`
+7. ```cpp
+   void AVL<T>::remove(const T & x, typename BST<T>::BSTNode *& t) override;
+   ```
    * Override the protected `BST` remove method.
    * Should be identical.
-8. `AVL<T>::AVL(void);`
+8. ```cpp
+   AVL<T>::AVL(void);
+   ```
     * Default AVL constructor.
     * Should be identical to the equivalent `BST` constructor, just without the initialization list syntax.
-9. `AVL<T>::AVL(const BST<T> & rhs);`
+9.  ```cpp
+    AVL<T>::AVL(const BST<T> & rhs);
+    ```
     * Copy AVL constructor.
     * Should be identical to the equivalent `BST` constructor, just without the initialization list syntax.
-10. `void AVL<T>::insert(const T & x) override;`
+10. ```cpp
+    void AVL<T>::insert(const T & x) override;
+    ```
     * Override the public `BST` insert method.
     * Should be identical to the equivalent `BST` method.
-11. `void AVL<T>::remove(const T & x) override;`
+11. ```cpp
+    void AVL<T>::remove(const T & x) override;
+    ```
     * Override the public `BST` remove method.
     * Should be identical to the equivalent `BST` method.
 #### Implementation Tips
