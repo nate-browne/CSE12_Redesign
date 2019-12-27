@@ -69,7 +69,7 @@ namespace cse12_ds {
     void heapify_up_max(size_t i) {
       // make sure we're not the root
       // and that the parent violates heap property
-      if((*this->vec)[this->get_parent(i)] < this->vec->at(i)) {
+      if(i && (*this->vec)[this->get_parent(i)] < this->vec->at(i)) {
         // swap
         std::swap((*this->vec)[i], (*this->vec)[this->get_parent(i)]);
         // recurse
@@ -80,7 +80,7 @@ namespace cse12_ds {
     void heapify_up_min(size_t i) {
       // make sure we're not the root
       // and that the parent violates heap property
-      if((*this->vec)[this->get_parent(i)] > this->vec->at(i)) {
+      if(i && (*this->vec)[this->get_parent(i)] > this->vec->at(i)) {
         // swap
         std::swap((*this->vec)[i], (*this->vec)[this->get_parent(i)]);
         // recurse
