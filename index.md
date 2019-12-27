@@ -29,5 +29,5 @@ _Extra credit may be awarded to students who are top contributors on Piazza and 
 ## Resources
 
 * [Data Structure Visualizations](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
-* [_Data Structures and Algorithm Analysis in C++_, by Mark Allen Weiss](http://iips.icci.edu.iq/images/exam/DataStructuresAndAlgorithmAnalysisInCpp_2014.pdf)
+* [_Data Structures and Algorithm Analysis in C++_, by Mark Allen Weiss](https://nate-browne.github.io/CSE12_Redesign/book/DataStructuresAndAlgorithmAnalysisInCpp_2014.pdf)
 * [Runtime Cheat Sheet](http://bigocheatsheet.com/)
