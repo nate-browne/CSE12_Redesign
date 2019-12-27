@@ -30,11 +30,11 @@ debug: build
 
 memcheck: build
 	MallocStackLogging=1
-	$(LEAKER) bin/driver
+	$(LEAKER) bin/driver ./data/phonebook.tsv ./data/network.tsv
 	unset MallocStackLogging
 
 prog: build 
-	bin/driver
+	bin/driver ./data/phonebook.tsv ./data/network.tsv
 
 build: clean setup driver.o
 	g++ $(LINKFLAGS) -o driver $(LDFLAGS) bin/driver.o bin/dict.o
