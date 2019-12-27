@@ -73,7 +73,8 @@ We will now show an example of how to use `boost` for a non-trivial project (tha
 5. Read the documentation
    * [Here it is!](https://www.boost.org/doc/libs/1_72_0/libs/graph/doc/table_of_contents.html)
 6. Use the library
-   * Instead of subjecting you to watching me type, I've instead linked to a completed project for this. You can find it [here](./lecturematerials/kevinbacon)
+   * Instead of subjecting you to watching me type, I've instead linked to a completed project for this.
+   * You can find it <a href="https://github.com/nate-browne/CSE12_Redesign/tree/master/Lectures/lecturematerials/kevinbacon" target="_blank">here!</a>
 7. Figure out how to compile
    * This is given in the Makefile for this project!
 
