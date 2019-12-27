@@ -135,6 +135,11 @@ to the heap order property.
 As it turns out, we can achieve a (relatively) balanced tree by way of randomly generating priorities
 as we insert! The analysis for this is somewhat complex, but, it is available [here](http://www.ist.tugraz.at/_attach/Publish/Eaa19/Chapter_05_RandomizedSearchTree_handout.pdf).
 
+In case you're curious, there is source code available for an RST that you can
+look at and try out. It's linked <a
+href="https://github.com/nate-browne/CSE12_Redesign/blob/master/Lectures/lecturematerials/RST"
+target="_blank">here, and comes with a corresponding Makefile.</a>
+
 That's all folks! Next time, we'll talk about [using libraries](./libraries.md)
 
 [back](../lectures.md)
