@@ -1,3 +1,5 @@
+#include <string.h> // for memset
+
 #include "dict.hpp"
 
 typedef std::tuple<std::string, std::string> StringTuple;
