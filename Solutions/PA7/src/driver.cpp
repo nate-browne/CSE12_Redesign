@@ -1,3 +1,5 @@
+#include <string.h> // for memset
+
 #include "dict.hpp"
 
 static void die(const char *reason) {
