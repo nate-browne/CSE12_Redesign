@@ -73,7 +73,10 @@ static void handle_network(SocialNetwork * sn) {
       clrbuf();
       target = std::string(buf);
 
-      if(!sn->is_entry(start)) die("Invalid starting name (not in network).");
+      if(!sn->is_entry(start)) {
+        fprintf(stderr, "%s\n", "Invalid starting name (not in network).");
+        break;
+      }
 
       std::cout << "Path from \"" << start << "\" to \"" << target << "\": "
         << ((sn->are_connected(start, target)) ? "true" : "false") << std::endl;
@@ -84,7 +87,10 @@ static void handle_network(SocialNetwork * sn) {
       clrbuf();
       start = std::string(buf);
 
-      if(!sn->is_entry(start)) die("Invalid name (not in network).");
+      if(!sn->is_entry(start)) {
+        fprintf(stderr, "%s\n", "Invalid starting name (not in network).");
+        break;
+      }
 
       sn->print_friends_for(start);
       break;
