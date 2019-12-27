@@ -2,7 +2,6 @@
 #define LIST_HPP
 
 #include <cstdlib>
-#include <exception>
 
 #define HALF 2
 

@@ -2,7 +2,7 @@
 #define HEAP_HPP
 
 #include <iostream>
-#include <exception>
+#include <stdexcept>
 
 namespace cse12_ds {
 

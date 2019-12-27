@@ -3,7 +3,6 @@
 
 #include <string>
 #include <iostream>
-#include <exception>
 
 #include "queue.hpp"
 #include "stack.hpp"

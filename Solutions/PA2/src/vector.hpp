@@ -1,7 +1,7 @@
 #ifndef VECTOR_HPP
 #define VECTOR_HPP
 
-#include <exception>
+#include <stdexcept>
 
 #define DEFAULT_SIZE 10
 #define ERR_STR "Accessing element out of range of vector"

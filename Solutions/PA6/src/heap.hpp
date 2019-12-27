@@ -3,7 +3,7 @@
 
 #include <vector>
 #include <iostream>
-#include <exception>
+#include <stdexcept>
 #include <algorithm>
 
 namespace cse12_ds {

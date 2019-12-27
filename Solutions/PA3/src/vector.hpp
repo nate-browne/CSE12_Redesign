@@ -1,6 +1,7 @@
 #ifndef VECTOR_HPP
 #define VECTOR_HPP
 
+#include <stdexcept>
 #include <exception>
 
 #define DEFAULT_SIZE 10
