@@ -51,9 +51,11 @@ Note that property 2 implies two different flavors of heaps.
 **If every node is less than its children, we have a _min heap._**
 
 Is the following heap a min heap, or a max heap?
+
 ![min heap](../images/minbinaryheap.png)
 
 Is the following heap a min heap, or a max heap?
+
 ![max heap](../images/maxbinaryheap.png)
 
 Because of property 1, implementing a heap via an array is actually pretty easy to do. We can very easily map each index of an array to a child of a node via a few formulas. The book doesn't use index 0 of the array, so their formulas will be different by a factor of 1.
@@ -131,7 +133,7 @@ We perform removals in a similar way by first removing according to the keys (BS
 to the heap order property.
 
 As it turns out, we can achieve a (relatively) balanced tree by way of randomly generating priorities
-as we insert! The analysis for this is somewhat complex but it is available [here](http://www.ist.tugraz.at/_attach/Publish/Eaa19/Chapter_05_RandomizedSearchTree_handout.pdf).
+as we insert! The analysis for this is somewhat complex, but, it is available [here](http://www.ist.tugraz.at/_attach/Publish/Eaa19/Chapter_05_RandomizedSearchTree_handout.pdf).
 
 That's all folks! Next time, we'll talk about [using libraries](./libraries.md)
 
