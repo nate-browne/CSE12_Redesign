@@ -34,7 +34,7 @@ If you pick the vector approach, it would be wise to use *composition* instead o
 
 **This code will work with _any_ datatype (both custom and primative) as long as
 it can be compared with both `operator <` and `operator >`, and if it implements
-`operator <<` for printing.
+`operator <<` for printing.**
 
 #### The Functions, Described
 You have 6 functions to fill out. Be sure to read the comments given in `heap.hpp`, though:
