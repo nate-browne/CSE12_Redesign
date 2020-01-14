@@ -2,19 +2,10 @@
 #include <cassert>
 
 #include "AVL.hpp"
+#include "utils.hpp"
 
 #define PROMPT "Enter a command ((c)ontains, i(s)_empty, (e)mpty, (i)nsert, (r)emove,\
  (p)rint, (f)ind_min, find_(m)ax): "
-
-static inline void clrbuf(void) {
-  char c = '\0';
-  while(c != '\n') c = fgetc(stdin);
-}
-
-static void die(const char *reason) {
-  fprintf(stderr, "%s\n", reason);
-  exit(1);
-}
 
 int main(void) {
 

@@ -40,7 +40,7 @@ build: clean setup driver.o
 	g++ $(LINKFLAGS) -o driver $(LDFLAGS) bin/driver.o bin/dict.o
 	mv driver bin/
 
-driver.o: src/driver.cpp src/dict.hpp src/dict.cpp
+driver.o: src/driver.cpp src/dict.hpp src/dict.cpp src/utils.hpp
 	g++ $(CXXFLAGS) $(LDFLAGS) src/driver.cpp
 	g++ $(CXXFLAGS) $(LDFLAGS) src/dict.cpp
 	mv *.o bin/

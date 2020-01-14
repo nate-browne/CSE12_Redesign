@@ -4,6 +4,7 @@
 #include <getopt.h>
 #include <unistd.h>
 
+#include "utils.hpp"
 #include "priority_queue.hpp"
 
 #define PROMPT "Enter a command ((e)mpty, (s)ize, p(u)sh, (p)op, (t)op): "
@@ -13,19 +14,7 @@ static struct option longopts[] = {
   {NULL, 0, NULL, 0}
 };
 
-static void die(const char *reason) {
-  fprintf(stderr, "%s\n", reason);
-  exit(1);
-}
-
-static void clrbuf(void) {
-  char ch;
-  do {
-    ch = fgetc(stdin);
-  } while(ch != '\n');
-}
-
-void handle_args(int argc, char *argv[], bool & b) {
+static void handle_args(int argc, char *argv[], bool & b) {
   int opt;
   while((opt = getopt_long(argc, argv, "m", longopts, NULL)) != EOF) {
     switch(opt) {

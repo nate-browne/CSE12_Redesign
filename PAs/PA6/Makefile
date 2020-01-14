@@ -47,7 +47,7 @@ build: clean setup driver.o
 	g++ $(LINKFLAGS) -o driver $(LDFLAGS) bin/driver.o
 	mv driver bin/
 
-driver.o: src/driver.cpp src/priority_queue.hpp src/heap.hpp
+driver.o: src/driver.cpp src/priority_queue.hpp src/heap.hpp src/utils.hpp
 	g++ $(CXXFLAGS) $(LDFLAGS) src/driver.cpp
 	mv *.o bin/
 

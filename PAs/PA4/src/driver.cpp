@@ -5,18 +5,12 @@
 #include <iostream>
 
 #include "list.hpp"
+#include "utils.hpp"
 
 #define LIST_STR "Please enter a command ((a)llocate, (d)eallocate, (c)lear, (f)ront, (b)ack,\
  (s)ize, pus(h)_front, p(u)sh_back, (i)nsert, p(o)p_back, (p)op_front, (e)rase): "
 
 #define NULL_STR "\n\tERROR: Cannot %s a null list.\n"
-
-inline void clrbuf(void) {
-  char c;
-  do {
-    c = fgetc(stdin);
-  } while(c != '\n');
-}
 
 int main(void) {
 

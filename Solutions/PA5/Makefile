@@ -18,7 +18,7 @@ ifeq ($(UNAME),Linux)
 else
 ifeq ($(UNAME),Darwin)
 	DEBUGGER=lldb
-	LEAKER=leaks -quiet -atExit -- 
+	LEAKER=leaks -quiet -atExit --
 endif
 endif
 
@@ -33,14 +33,14 @@ memcheck: build
 	$(LEAKER) bin/driver
 	unset MallocStackLogging
 
-prog: build 
+prog: build
 	bin/driver
 
 build: clean setup driver.o
 	g++ $(LINKFLAGS) -o driver $(LDFLAGS) bin/driver.o
 	mv driver bin/
 
-driver.o: src/driver.cpp src/BST.hpp src/AVL.hpp
+driver.o: src/driver.cpp src/BST.hpp src/AVL.hpp src/utils.hpp
 	g++ $(CXXFLAGS) $(LDFLAGS) src/driver.cpp
 	mv *.o bin/
 

@@ -4,14 +4,8 @@
 #include <string>
 #include <iostream>
 
+#include "utils.hpp"
 #include "vector.hpp"
-
-inline void clrbuf(void) {
-  char c;
-  do {
-    c = fgetc(stdin);
-  } while(c != '\n');
-}
 
 int main(void) {
 

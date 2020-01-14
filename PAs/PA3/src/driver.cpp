@@ -4,18 +4,12 @@
 #include <string>
 #include <iostream>
 
+#include "utils.hpp"
 #include "queue.hpp"
 #include "stack.hpp"
 
 #define QUEUE_STR "Please enter a command: (e(m)pty, (s)ize, (f)ront, (b)ack, (p)ush, p(o)p): ";
 #define STACK_STR "Please enter a command: (e(m)pty, (s)ize, (t)op, (p)ush, p(o)p): ";
-
-inline void clrbuf(void) {
-  char c;
-  do {
-    c = fgetc(stdin);
-  } while(c != '\n');
-}
 
 int main(void) {
 

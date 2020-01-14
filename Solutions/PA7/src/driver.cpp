@@ -1,18 +1,7 @@
 #include <cstring> // for memset
 
 #include "dict.hpp"
-
-static void die(const char *reason) {
-  fprintf(stderr, "%s\n", reason);
-  exit(1);
-}
-
-static void clrbuf(void) {
-  char c;
-  do {
-    c = fgetc(stdin);
-  } while(c != '\n');
-}
+#include "utils.hpp"
 
 static void handle_phone(PhoneBook * pb) {
   char opt;

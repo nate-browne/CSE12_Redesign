@@ -18,7 +18,7 @@ ifeq ($(UNAME),Linux)
 else
 ifeq ($(UNAME),Darwin)
 	DEBUGGER=lldb
-	LEAKER=leaks -quiet -atExit -- 
+	LEAKER=leaks -quiet -atExit --
 endif
 endif
 
@@ -37,7 +37,7 @@ build: clean setup driver.o
 	g++ $(LINKFLAGS) -o driver $(LDFLAGS) bin/driver.o
 	mv driver bin/
 
-driver.o: src/driver.cpp src/vector.hpp
+driver.o: src/driver.cpp src/vector.hpp src/utils.hpp
 	g++ $(CXXFLAGS) $(LDFLAGS) src/driver.cpp
 	mv *.o bin/
 
