@@ -30,7 +30,8 @@ with a few modifications/simplifications. In general though, you can just follow
   * Use spaces. 2 or 4 spaces is fine (2 preferred) but absolutely no tabs.
   * Set up your editor to replace tabs with spaces.
 6. Line Length
-  * Keep your lines no more than 80 chars long. There are a few exceptions; [read them here](https://google.github.io/styleguide/cppguide.html#Line_Length)
+  * Traditionally, line lengths were capped at 80. This is mostly due to legacy
+    reasons, and as such we will not be enforcing this rule in this course.
 7. Function Declarations and Definitions
   * Put them all on the same line, if they fit.
   * If it doesn't fit, refer to [this link](https://google.github.io/styleguide/cppguide.html#Function_Declarations_and_Definitions).
