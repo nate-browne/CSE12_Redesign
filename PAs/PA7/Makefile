@@ -18,7 +18,7 @@ ifeq ($(UNAME),Linux)
 else
 ifeq ($(UNAME),Darwin)
 	DEBUGGER=lldb
-	LEAKER=leaks -quiet -atExit -- 
+	LEAKER=leaks -quiet -atExit --
 endif
 endif
 
@@ -33,7 +33,7 @@ memcheck: build
 	$(LEAKER) bin/driver ./data/phonebook.tsv ./data/network.tsv
 	unset MallocStackLogging
 
-prog: build 
+prog: build
 	bin/driver ./data/phonebook.tsv ./data/network.tsv
 
 build: clean setup driver.o
@@ -50,3 +50,4 @@ setup:
 
 clean:
 	rm -rf bin/
+

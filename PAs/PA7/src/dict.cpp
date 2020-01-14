@@ -89,7 +89,7 @@ void PhoneBook::build_listings(const std::string & filename) {
   auto parsed = parse_file(filename);
 
   for(auto it : *parsed) {
-    if(this->listings->count(std::get<0>(it))) continue; 
+    if(this->listings->count(std::get<0>(it))) continue;
     (*this->listings)[std::get<0>(it)] = std::get<1>(it);
   }
 
@@ -158,7 +158,8 @@ SocialNetwork::~SocialNetwork(void) {
 
 }
 
-bool SocialNetwork::are_connected(const std::string & name_1, const std::string & name_2) const {
+bool SocialNetwork::are_connected(const std::string & name_1, const std::string
+  & name_2) const {
   return false;
 }
 
@@ -169,3 +170,4 @@ void SocialNetwork::print_friends_for(const std::string & name) {
 bool SocialNetwork::is_entry(const std::string & name) {
   return this->friend_map->count(name);
 }
+

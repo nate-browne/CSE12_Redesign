@@ -31,3 +31,4 @@ check.o: src/pa1.cpp src/pa1.hpp src/util.hpp test/check.cpp
 
 clean:
 	rm -rf bin/
+

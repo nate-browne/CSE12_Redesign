@@ -41,17 +41,18 @@ namespace cse12_ds {
       }
     }
 
-    const T * top(void) {
+    const T top(void) {
       try {
-        return &this->hp->view();
+        return this->hp->view();
       } catch(std::out_of_range & ex) {
         std::cerr << std::endl << "\tcse12_ds::priority_queue exception: "
           << ex.what() << std::endl;
         errno = 1;
       }
-      return nullptr;
+      return 0;
     }
   };
 }
 
 #endif
+

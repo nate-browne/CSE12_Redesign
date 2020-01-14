@@ -14,3 +14,4 @@ double AverageScore(const double scores[], int num_elements) {
   // TODO: Your code goes here
   return 0;
 }
+

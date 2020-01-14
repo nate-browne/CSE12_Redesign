@@ -7,8 +7,10 @@
  (p)rint, (f)ind_min, find_(m)ax): "
 
 static inline void clrbuf(void) {
-  char c = '\0';
-  while(c != '\n') c = fgetc(stdin);
+  char c;
+  do {
+    c = fgetc(stdin);
+  } while(c != '\n');
 }
 
 static void die(const char *reason) {
@@ -173,3 +175,4 @@ int main(void) {
   delete tree;
   return EXIT_SUCCESS;
 }
+

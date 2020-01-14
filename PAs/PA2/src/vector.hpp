@@ -49,7 +49,7 @@ namespace cse12_ds {
       /*
        * TODO: Finish operator []
        */
-    } 
+    }
 
     T & at(unsigned int pos) {
       /*
@@ -108,3 +108,4 @@ namespace cse12_ds {
 }
 
 #endif
+

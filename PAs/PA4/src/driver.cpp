@@ -12,8 +12,10 @@
 #define NULL_STR "\n\tERROR: Cannot %s a null list.\n"
 
 inline void clrbuf(void) {
-  char c = '\0';
-  while(c != '\n') c = fgetc(stdin);
+  char c;
+  do {
+    c = fgetc(stdin);
+  } while(c != '\n');
 }
 
 int main(void) {
@@ -33,6 +35,7 @@ int main(void) {
 
     switch(command) {
       case 'a':
+        if(lst) delete lst;
         lst = new cse12_ds::list<std::string>();
         std::cout << "\n\tList allocated." << std::endl;
         break;

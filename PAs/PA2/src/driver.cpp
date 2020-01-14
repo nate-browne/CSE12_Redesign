@@ -6,8 +6,11 @@
 
 #include "vector.hpp"
 
-void clrbuf(char c) {
-  while(c != '\n') c = fgetc(stdin);
+inline void clrbuf(void) {
+  char c;
+  do {
+    c = fgetc(stdin);
+  } while(c != '\n');
 }
 
 int main(void) {
@@ -21,7 +24,7 @@ int main(void) {
     if((command = fgetc(stdin)) == EOF) {
       break;
     }
-    clrbuf(command);
+    clrbuf();
 
     switch(command) {
       case 'm': {
@@ -40,7 +43,7 @@ int main(void) {
         unsigned int pos;
         std::cout << "Enter a position: ";
         std::cin >> pos;
-        clrbuf(command);
+        clrbuf();
         try {
           std::cout << "Element at position " << pos << " is " << vec.at(pos) << std::endl;
         } catch(std::out_of_range & ex) {
@@ -66,7 +69,7 @@ int main(void) {
         int elem;
         std::cout << "Please enter element to insert: ";
         std::cin >> elem;
-        clrbuf(command);
+        clrbuf();
         vec.push_back(elem);
         break;
       }
@@ -84,12 +87,12 @@ int main(void) {
         int item, position;
         std::cout << "Please enter an item to insert: ";
         std::cin >> item;
-        clrbuf(command);
+        clrbuf();
 
         std::cout << "Please enter a position. Note that an invalid position (e.g. one larger" <<
           " than the current capacity) will cause undefinied behavior: ";
         std::cin >> position;
-        clrbuf(command);
+        clrbuf();
         vec.insert(position, item);
         break;
       }
@@ -97,19 +100,19 @@ int main(void) {
         fprintf(stdout, "(p)osition or (r)ange? ");
         int pos, start = 0, end = 0;
         char selection = fgetc(stdin);
-        clrbuf(selection);
+        clrbuf();
         if(selection == 'p') {
           std::cout << "Enter a position: ";
           std::cin >> pos;
-          clrbuf(command);
+          clrbuf();
           vec.erase(pos);
         } else if(selection == 'r') {
           std::cout << "Enter a starting position: ";
           std::cin >> start;
-          clrbuf(command);
+          clrbuf();
           std::cout << "Enter an ending position: ";
           std::cin >> end;
-          clrbuf(command);
+          clrbuf();
           vec.erase(start, end);
         }
         break;
@@ -124,3 +127,4 @@ int main(void) {
 
   return EXIT_SUCCESS;
 }
+

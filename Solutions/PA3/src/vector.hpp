@@ -2,7 +2,6 @@
 #define VECTOR_HPP
 
 #include <stdexcept>
-#include <exception>
 
 #define DEFAULT_SIZE 10
 #define ERR_STR "Accessing element out of range of vector"
@@ -125,3 +124,4 @@ namespace cse12_ds {
 }
 
 #endif
+

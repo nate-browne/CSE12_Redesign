@@ -10,8 +10,11 @@
 #define QUEUE_STR "Please enter a command (e(m)pty, (s)ize, (f)ront, (b)ack, (p)ush, p(o)p): ";
 #define STACK_STR "Please enter a command (e(m)pty, (s)ize, (t)op, (p)ush, p(o)p): ";
 
-void clrbuf(char c) {
-  while(c != '\n') c = fgetc(stdin);
+inline void clrbuf(void) {
+  char c;
+  do {
+    c = fgetc(stdin);
+  } while(c != '\n');
 }
 
 int main(void) {
@@ -21,7 +24,7 @@ int main(void) {
   cse12_ds::stack<std::string> *stack = nullptr;
   std::cout << "(q)ueue or (s)tack? ";
   dec = fgetc(stdin);
-  clrbuf(dec);
+  clrbuf();
 
   switch(dec) {
     case 'q':
@@ -46,7 +49,7 @@ int main(void) {
     if((command = fgetc(stdin)) == EOF) {
       break;
     }
-    clrbuf(command);
+    clrbuf();
 
     switch(command) {
       case 'm': {
@@ -141,3 +144,4 @@ int main(void) {
   (queue) ? delete queue : delete stack;
   return EXIT_SUCCESS;
 }
+

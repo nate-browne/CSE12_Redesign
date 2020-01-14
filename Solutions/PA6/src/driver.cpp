@@ -19,8 +19,10 @@ static void die(const char *reason) {
 }
 
 static void clrbuf(void) {
-  char ch = '\0';
-  while(ch != '\n') ch = fgetc(stdin);
+  char ch;
+  do {
+    ch = fgetc(stdin);
+  } while(ch != '\n');
 }
 
 void handle_args(int argc, char *argv[], bool & b) {
@@ -31,7 +33,7 @@ void handle_args(int argc, char *argv[], bool & b) {
         b = true; // user wants a min heap
         break;
       default:
-        die("Invalid argument given to program.");   
+        die("Invalid argument given to program.");
     }
   }
 }
@@ -41,7 +43,7 @@ int main(int argc, char *argv[]) {
   bool min_heap = false; // assume user wants a max heap PQ
   char opt;
   uint32_t val;
-  const uint32_t *intptr;
+  uint32_t intr;
 
   handle_args(argc, argv, min_heap);
 
@@ -72,7 +74,7 @@ int main(int argc, char *argv[]) {
         std::cout << "Enter a value to push: ";
         std::cin >> val;
         clrbuf();
-        pq.push(val); 
+        pq.push(val);
         std::cout << std::endl << "\tValue " << val << " pushed." << std::endl;
         break;
       case 'p':
@@ -81,10 +83,10 @@ int main(int argc, char *argv[]) {
         break;
       case 't':
         errno = 0;
-        intptr = pq.top();
+        intr = pq.top();
 
         if(!errno)
-          std::cout << std::endl << "\tValue at top: " << *intptr << std::endl;
+          std::cout << std::endl << "\tValue at top: " << intr << std::endl;
         break;
       default:
         std::cout << "Command '" << opt << "' is not valid." << std::endl;
@@ -94,3 +96,4 @@ int main(int argc, char *argv[]) {
 
   return EXIT_SUCCESS;
 }
+

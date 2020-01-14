@@ -13,9 +13,11 @@ endif
 UNAME := $(shell uname)
 ifeq ($(UNAME),Linux)
 	DEBUGGER=gdb
+	LEAKER=valgrind --leak-check=full --read-var-info=yes --show-reachable=yes
 else
-ifeq ($(UNAME), Darwin)
+ifeq ($(UNAME),Darwin)
 	DEBUGGER=lldb
+	LEAKER=leaks -quiet -atExit --
 endif
 endif
 
@@ -25,7 +27,10 @@ new:
 debug: build
 	$(DEBUGGER) bin/driver
 
-prog: build 
+memcheck: build
+	$(LEAKER) bin/driver $(MAX)
+
+prog: build
 	bin/driver
 
 build: clean setup driver.o
@@ -41,3 +46,4 @@ setup:
 
 clean:
 	rm -rf bin/
+

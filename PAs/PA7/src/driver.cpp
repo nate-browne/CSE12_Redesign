@@ -1,3 +1,5 @@
+#include <cstring> // for memset
+
 #include "dict.hpp"
 
 static void die(const char *reason) {
@@ -6,8 +8,10 @@ static void die(const char *reason) {
 }
 
 static void clrbuf(void) {
-  char c = '\0';
-  while(c != '\n') c = fgetc(stdin);
+  char c;
+  do {
+    c = fgetc(stdin);
+  } while(c != '\n');
 }
 
 static void handle_phone(PhoneBook * pb) {
@@ -145,3 +149,4 @@ int main(int argc, char *argv[]) {
   delete sn;
   return EXIT_SUCCESS;
 }
+

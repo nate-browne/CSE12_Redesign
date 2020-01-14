@@ -40,7 +40,7 @@ debug: build
 memcheck: build
 	$(LEAKER) bin/driver $(MAX)
 
-prog: build 
+prog: build
 	bin/driver $(MAX)
 
 build: clean setup driver.o
@@ -56,3 +56,4 @@ setup:
 
 clean:
 	rm -rf bin/
+

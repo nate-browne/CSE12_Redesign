@@ -21,3 +21,4 @@ std::string ReplaceLetter(const std::string &, const char, const char);
 double AverageScore(const double scores[], int);
 
 #endif
+

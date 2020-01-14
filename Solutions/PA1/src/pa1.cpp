@@ -35,3 +35,4 @@ double average_score(const double scores[], int num_elements) {
   }
   return sum / num_elements;
 }
+

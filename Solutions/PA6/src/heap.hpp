@@ -33,7 +33,7 @@ namespace cse12_ds {
       // Find the largest between the left and right children
       if(left < this->size() && this->vec->at(left) > this->vec->at(i))
         max = left;
-      
+
       if(right < this->size() && this->vec->at(right) > this->vec->at(max))
         max = right;
 
@@ -54,7 +54,7 @@ namespace cse12_ds {
       // Find the largest between the left and right children
       if(left < this->size() && this->vec->at(left) < this->vec->at(i))
         min = left;
-      
+
       if(right < this->size() && this->vec->at(right) < this->vec->at(min))
         min = right;
 
@@ -128,5 +128,5 @@ namespace cse12_ds {
   };
 }
 
-
 #endif
+
