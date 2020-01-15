@@ -14,13 +14,9 @@ namespace cse12_ds {
     void double_left(typename BST<T>::BSTNode *& t);
     void rotate_right(typename BST<T>::BSTNode *& t);
     void double_right(typename BST<T>::BSTNode *& t);
-    void insert(const T & x, typename BST<T>::BSTNode *& t) override;
-    void remove(const T & x, typename BST<T>::BSTNode *& t) override;
    public:
     AVL(void);
     AVL(const BST<T> & rhs);
-    void insert(const T & x) override;
-    void remove(const T & x) override;
   };
 
   template <class T>
@@ -75,33 +71,6 @@ namespace cse12_ds {
   }
 
   template <class T>
-  void AVL<T>::insert(const T & x, typename BST<T>::BSTNode *& t) {
-    if(!t) t = new typename BST<T>::BSTNode(x, nullptr, nullptr);
-    else if(x < t->element) this->insert(x, t->left);
-    else if(t->element < x) this->insert(x, t->right);
-
-    this->balance(t);
-  }
-
-  template <class T>
-  void AVL<T>::remove(const T & x, typename BST<T>::BSTNode *& t) {
-    if(!t) return;
-
-    if(x < t->element) this->remove(x, t->left);
-    else if(t->element < x) this->remove(x, t->right);
-    else if(t->left && t->right) {
-      t->element = this->find_max(t->left)->element;
-      this->remove(t->element, t->left);
-    } else {
-      typename BST<T>::BSTNode *old = t;
-      t = (t->left) ? t->left : t->right;
-      delete old;
-    }
-
-    this->balance(t);
-  }
-
-  template <class T>
   AVL<T>::AVL(const BST<T> & rhs) {
     this->root = nullptr;
     this->root = this->clone(rhs.get_root());
@@ -110,16 +79,6 @@ namespace cse12_ds {
   template <class T>
   AVL<T>::AVL(void) {
     this->root = nullptr;
-  }
-
-  template <class T>
-  void AVL<T>::insert(const T & x) {
-    this->insert(x, this->root);
-  }
-
-  template <class T>
-  void AVL<T>::remove(const T & x) {
-    this->remove(x, this->root);
   }
 }
 

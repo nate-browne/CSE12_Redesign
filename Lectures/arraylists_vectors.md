@@ -38,7 +38,7 @@ Let's build our own, implementing some basic features. Our array will only hold 
 (I'm about to introduce C++ classes right now; don't panic)
 
 ```cpp
-class MyArray:
+class MyArray {
  private:
   int *arr; // The array itself
   int size; // Size of the array
@@ -70,7 +70,7 @@ Next up: How should we implement insert?
 ## Enhancing our class: Insertion
 
 ```cpp
-class MyArray:
+class MyArray {
  private:
   int *arr; // The array itself
   int size; // Size of the array
@@ -99,7 +99,7 @@ class MyArray:
 Easy enough. Now, resizing. How should we do this?
 
 ```cpp
-class MyArray:
+class MyArray {
  private:
   int *arr; // The array itself
   int size; // Size of the array

@@ -17,7 +17,7 @@ This code make heavy use of some C++ concepts you've probably never seen before,
        Weather ref = new Snow();
        ```
        compile time: ref is a `Weather`
-       
+
        run time: ref is a `Snow`
    * The `virtual` keyword changes the binding for the following function from static to dynamic in C++.
      * This is necessary for <a href="https://en.wikipedia.org/wiki/Virtual_function" target="_blank">virtual function run-time polymorphism.</a>
@@ -195,35 +195,15 @@ Second, the AVL:
    * Performs a double right rotation starting from `t`.
    * Should be implemented with two function calls.
 6. ```cpp
-   void AVL<T>::insert(const T & x, typename BST<T>::BSTNode *& t) override;
-   ```
-   * Override the protected `BST` insert method.
-   * Should be identical.
-7. ```cpp
-   void AVL<T>::remove(const T & x, typename BST<T>::BSTNode *& t) override;
-   ```
-   * Override the protected `BST` remove method.
-   * Should be identical.
-8. ```cpp
    AVL<T>::AVL(void);
    ```
     * Default AVL constructor.
     * Should be identical to the equivalent `BST` constructor, just without the initialization list syntax.
-9.  ```cpp
+7.  ```cpp
     AVL<T>::AVL(const BST<T> & rhs);
     ```
     * Copy AVL constructor.
     * Should be identical to the equivalent `BST` constructor, just without the initialization list syntax.
-10. ```cpp
-    void AVL<T>::insert(const T & x) override;
-    ```
-    * Override the public `BST` insert method.
-    * Should be identical to the equivalent `BST` method.
-11. ```cpp
-    void AVL<T>::remove(const T & x) override;
-    ```
-    * Override the public `BST` remove method.
-    * Should be identical to the equivalent `BST` method.
 #### Implementation Tips
 1. Use the book! The BST chapter has a lot of useful information for both the BST and AVL implementations.
 2. For each function, consider edge cases and what should be returned. For example, if the `node` parameter to `contains` is `nullptr`, what do we return?
