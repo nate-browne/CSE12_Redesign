@@ -25,6 +25,9 @@ endif
 new:
 	make prog
 
+prog: build
+	bin/driver
+
 debug: build
 	$(DEBUGGER) bin/driver
 
