@@ -61,7 +61,7 @@ int main(void) {
   double grade = num_correct / 5;
   std::cout << "Grade: " << (grade * 100) << "%" << std::endl;
   if(num_correct != 5) {
-    for(int i = 0; i < results.size(); ++i) {
+    for(size_t i = 0; i < results.size(); ++i) {
       bool val = results[i];
       if(!val) {
         std::cout << "Re-run test #" << i << "." << std::endl;
