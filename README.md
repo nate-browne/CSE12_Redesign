@@ -22,11 +22,36 @@ give me credit please and thanks.
 
 ### Required Materials
 1. Either `clang++` or `g++`
-2. Valgrind/leaks and GDB/LLDB
+2. `valgrind`/`leaks` (for macOS) and GDB/LLDB (for macOS)
 
 There are Makefiles that are written to work natively with both macOS and with
 Linux distributions, so either of those should be used. Windows is **_not
 supported_** by this project.
+
+To be explicit, `clang++` and `leaks` are part of macOS already (providing you
+have Xcode tools, which if you've tried compiling anything you already have).
+MacOS actually aliases `g++` to `clang++`, so you don't even have to type
+anything different. On Linux, you'll have to install `g++`, `gdb`, and `valgrind`.
+
+For the sake of clarity, I'll now put links to all of the tools (except `leaks`):
+* [valgrind](http://valgrind.org/)
+* [GNU compiler project (includes `g++`)](https://gcc.gnu.org/)
+* [clang](https://clang.llvm.org/)
+* [GDB](https://www.gnu.org/software/gdb/)
+* [LLDB](https://lldb.llvm.org/index.html)
+
+For those new to LLDB who have used GDB, this [mapping of commands](https://lldb.llvm.org/use/map.html)
+will probably be of use to you.
+
+To be able to use `leaks` properly for macOS, you'll need to run the following
+commands:
+
+```sh
+cd /usr/local/lib
+sudo ln -s /Applications/Xcode.app/Contents/Developer/usr/lib/libLeaksAtExit.dylib
+```
+
+Without running these first, you'll run into an error with linking.
 
 The code does not assume IDE support, so something like
 [CLion](https://www.jetbrains.com/clion) is *not* recommended. I personally
