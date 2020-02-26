@@ -60,147 +60,147 @@ Keep this in mind if you write custom objects to use for testing.
 #### The Functions, Described
 First, the BST:
 1. ```cpp
-   virtual int BST<T>::height(BSTNode *t) const;
+   virtual int height(BSTNode *t) const;
    ```
    * Calculates the height of the given node `t`.
    * Given.
 2. ```cpp
-   virtual void BST<T>::balance(BSTNode *& t);
+   virtual void balance(BSTNode *& t);
    ```
    * Updates the height of `t`
    * Given.
 3. ```cpp
-   void BST<T>::insert(const T & x, BSTNode *& t);
+   virtual void insert(const T & x, BSTNode *& t);
    ```
    * This function inserts value `x` into the tree starting from node `t`.
    * It can be written iteratively or recursively, with the recursive implementation being simpler.
    * Duplicate insertions should be ignored.
 4. ```cpp
-   void BST<T>::remove(const T & x, BSTNode *& t);
+   virtual void remove(const T & x, BSTNode *& t);
    ```
    * This function removes value `x` from the tree starting from node `t`.
    * It can be written iteratively or recursively, with the recursive implementation being simpler.
    * You will have to handle the case of having two children. Use the predecessor node strategy for data replacement.
      * This can be implemented with two function calls.
 5. ```cpp
-   typename BST<T>::BSTNode * BST<T>::find_min(BSTNode *t) const;
+   virtual BSTNode * find_min(BSTNode *t) const;
    ```
    * This function finds the smallest element for the given tree starting from node `t`.
    * It can be written iteratively or recursively. Both implementations are pretty simple and equally as fast when optimized by the compiler.
 6. ```cpp
-   typename BST<T>::BSTNode * BST<T>::find_max(BSTNode *t) const;
+   virtual BSTNode * find_max(BSTNode *t) const;
    ```
    * This function finds the largest element for the given tree starting from node `t`.
    * It can be written iteratively or recursively. Both implementations are pretty simple and equally as fast when optimized by the compiler.
 7. ```cpp
-   bool BST<T>::contains(const T & x, BSTNode *t) const;
+   virtual bool contains(const T & x, BSTNode *t) const;
    ```
    * This function checks if the tree starting from node `t` contains element `x`.
    * It can be written iteratively or recursively, with the recursive implementation being simpler.
    * _**DO NOT**_ use `operator ==`! (how can you check for equality?)
 8. ```cpp
-   void BST<T>::print(std::ostream & out, BSTNode *t) const;
+   virtual void print(std::ostream & out, BSTNode *t) const;
    ```
    * This function performs an in-order traversal printing contents of each node.
    * Given to you.
 9.  ```cpp
-    void BST<T::empty(BSTNode *& t);
+    virtual void empty(BSTNode *& t);
     ```
     * This function empties the tree starting from node `t`.
     * Use a traversal! (which one?)
     * **Be sure to set `t = nullptr;` at the end!**
 10. ```cpp
-    typename BST<T>::BSTNode * BST<T>::clone(BSTNode *t) const;
+    virtual BSTNode * clone(BSTNode *t) const;
     ```
     * This function makes and returns a clone of the tree node by node starting from node `t`.
     * This function **must be recursive**.
     * Look at the `BSTNode` constructor for hints on what to pass as the 2nd and 3rd actual argument.
 11. ```cpp
-    BST<T>::BST(void)
+    BST(void)
     ```
     * Default constructor. Given.
 12. ```cpp
-    BST<T>::BST(const BST & rhs);
+    BST(const BST & rhs);
     ```
     * Copy constructor.
     * Should just set `root` to the result of a protected helper function call (which one?)
 13. ```cpp
-    BST<T>::~BST(void);
+    ~BST(void);
     ```
     * Destructor.
     * Should just call a protected helper function (which one?)
 14. ```cpp
-    typename BST<T>::BSTNode * BST<T>::get_root(void) const;
+    virtual BSTNode * get_root(void) const;
     ```
     * One line function to return the root
 15. ```cpp
-    const T & BST<T>::find_min(void) const;
+    virtual const T & find_min(void) const;
     ```
     * Calls the protected `find_min` and returns the value, or throws an exception if the tree is empty.
     * Given.
 16. ```cpp
-    const T & BST<T>::find_max(void) const;
+    virtual const T & find_max(void) const;
     ```
     * Calls the protected `find_max` and returns the value, or throws an exception if the tree is empty.
     * Given.
 17. ```cpp
-    bool BST<T>::contains(const T & x) const;
+    virtual bool contains(const T & x) const;
     ```
     * Public interface method for `contains`.
     * Should call protected `contains` function starting from `root`.
 18. ```cpp
-    bool BST<T>::is_empty(void) const
+    virtual bool is_empty(void) const
     ```
     * Checks if tree is empty.
     * Easy one-line function.
 19. ```cpp
-    void BST<T>::print(void) const
+    virtual void print(void) const
     ```
     * Calls the protected `print` function starting from `root`.
 20. ```cpp
-    void BST<T>::empty(void)
+    virtual void empty(void)
     ```
     * Calls the protected `empty` function starting from `root`.
 21. ```cpp
-    void BST<T>::insert(const T & x)
+    virtual void insert(const T & x)
     ```
     * Calls the protected `insert` function starting from `root`.
 22. ```cpp
-    void BST<T>::remove(const T & x)
+    virtual void remove(const T & x)
     ```
     * Calls the protected `remove` function starting from `root`.
 
 Second, the AVL:
 1. ```cpp
-   void AVL<T>::balance(typename BST<T>::BSTNode *& t) override;
+   void balance(typename BST<T>::BSTNode *& t) override;
    ```
    * Function that checks the heights and determines if the node `t` needs to be rotated.
    * You should use <a href="https://en.cppreference.com/w/cpp/algorithm/max" target="_blank">`std::max` from the algorithm header</a> to set the height of `t` before returning.
 2. ```cpp
-   void AVL<T>::rotate_left(typename BST<T>::BSTNode *& t);
+   void rotate_left(typename BST<T>::BSTNode *& t);
    ```
    * Performs a left rotation starting from `t`.
 3. ```cpp
-   void AVL<T>::double_left(typename BST<T>::BSTNode *& t);
+   void double_left(typename BST<T>::BSTNode *& t);
    ```
    * Performs a double left rotation starting from `t`.
    * Should be implemented with two function calls.
 4. ```cpp
-   void AVL<T>::rotate_right(typename BST<T>::BSTNode *& t);
+   void rotate_right(typename BST<T>::BSTNode *& t);
    ```
    * Performs a right rotation starting from `t`.
 5. ```cpp
-   void AVL<T>::double_right(typename BST<T>::BSTNode *& t);
+   void double_right(typename BST<T>::BSTNode *& t);
    ```
    * Performs a double right rotation starting from `t`.
    * Should be implemented with two function calls.
 6. ```cpp
-   AVL<T>::AVL(void);
+   AVL(void);
    ```
     * Default AVL constructor.
     * Should be identical to the equivalent `BST` constructor, just without the initialization list syntax.
 7.  ```cpp
-    AVL<T>::AVL(const BST<T> & rhs);
+    AVL(const BST<T> & rhs);
     ```
     * Copy AVL constructor.
     * Should be identical to the equivalent `BST` constructor, just without the initialization list syntax.
