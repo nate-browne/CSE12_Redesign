@@ -3,24 +3,31 @@
 #define PROMPT "Enter a command ((c)ontains, i(s)_empty, (e)mpty, (i)nsert, (r)emove,\
  (p)rint, (f)ind_min, find_(m)ax): "
 
+using std::string;
+using std::cout;
+using std::endl;
+using std::cin;
+
 static inline void clrbuf(void) {
-  char c = '\0';
-  while(c != '\n') c = fgetc(stdin);
+  char c;
+  do {
+    c = fgetc(stdin);
+  } while(c != '\n');
 }
 
 int main(void) {
 
   char opt;
 
-  std::string val, m_val;
+  string val, m_val;
   char buf[BUFSIZ];
 
-  RST<std::string> *tree = new RST<std::string>();
+  RST<string> *tree = new RST<string>();
 
   while(true) {
 
     opt = '\0';
-    std::cout << std::endl << PROMPT;
+    cout << endl << PROMPT;
 
     if((opt = fgetc(stdin)) == EOF) break;
 
@@ -28,44 +35,44 @@ int main(void) {
 
     switch(opt) {
       case 'c':
-        std::cout << "Enter a string to search for: ";
-        std::cin >> buf;
+        cout << "Enter a string to search for: ";
+        cin >> buf;
         clrbuf();
 
-        val = std::string(buf);
+        val = string(buf);
 
-        std::cout << "String \"" << val << "\" in tree: " <<
-          ((tree->contains(val)) ? "true" : "false") << std::endl;
+        cout << "String \"" << val << "\" in tree: " <<
+          ((tree->contains(val)) ? "true" : "false") << endl;
         break;
       case 's':
-        std::cout << "Tree is empty: " << ((tree->is_empty()) ? "true" : "false")
-          << std::endl;
+        cout << "Tree is empty: " << ((tree->is_empty()) ? "true" : "false")
+          << endl;
         break;
       case 'e':
         tree->empty();
-        std::cout << "Tree is empty." << std::endl;
+        cout << "Tree is empty." << endl;
         break;
       case 'i':
-        std::cout << "Enter a string to insert: ";
-        std::cin >> buf;
+        cout << "Enter a string to insert: ";
+        cin >> buf;
         clrbuf();
 
-        val = std::string(buf);
+        val = string(buf);
         tree->insert(val);
-        std::cout << "String \"" << val << "\" inserted." << std::endl;
+        cout << "String \"" << val << "\" inserted." << endl;
         break;
       case 'r':
-        std::cout << "Enter a string to remove: ";
-        std::cin >> buf;
+        cout << "Enter a string to remove: ";
+        cin >> buf;
         clrbuf();
 
-        val = std::string(buf);
+        val = string(buf);
 
         if(!tree->contains(val)) {
-          std::cout << "String \"" << val << "\" not in the tree." << std::endl;
+          cout << "String \"" << val << "\" not in the tree." << endl;
         } else {
           tree->remove(val);
-          std::cout << "String \"" << val << "\" removed." << std::endl;
+          cout << "String \"" << val << "\" removed." << endl;
         }
         break;
       case 'p':
@@ -74,21 +81,21 @@ int main(void) {
       case 'f':
         try {
           m_val = tree->find_min();
-          std::cout << "Min value is \"" << m_val << "\"" << std::endl;
+          cout << "Min value is \"" << m_val << "\"" << endl;
         } catch(std::out_of_range & ex) {
-          std::cout << ex.what() << std::endl;
+          cout << ex.what() << endl;
         }
         break;
       case 'm':
         try {
           m_val = tree->find_max();
-          std::cout << "Max value is \"" << m_val << "\"" << std::endl;
+          cout << "Max value is \"" << m_val << "\"" << endl;
         } catch(std::out_of_range & ex) {
-          std::cout << ex.what() << std::endl;
+          cout << ex.what() << endl;
         }
         break;
       default:
-        std::cout << "Command '" << opt << "' is invalid." << std::endl;
+        cout << "Command '" << opt << "' is invalid." << endl;
         break;
     }
   }

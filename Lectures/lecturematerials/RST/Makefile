@@ -11,23 +11,40 @@ else
 	LDFLAGS=-g
 endif
 
-all: driver
+UNAME := $(shell uname)
+ifeq ($(UNAME),Linux)
+	DEBUGGER=gdb
+	LEAKER=valgrind --leak-check=full --read-var-info=yes --show-reachable=yes
+else
+ifeq ($(UNAME),Darwin)
+	DEBUGGER=lldb
+	LEAKER=leaks -quiet -atExit --
+endif
+endif
 
-driver: driver.o
-	g++ $(LINKFLAGS) -o driver $(LDFLAGS) src/driver.o
+new:
+	make prog
+
+debug: build
+	$(DEBUGGER) bin/driver
+
+memcheck: build
+	$(LEAKER) bin/driver
+
+prog: build
+	bin/driver
+
+build: clean setup driver.o
+	g++ $(LINKFLAGS) -o driver $(LDFLAGS) bin/driver.o
 	mv driver bin/
 
 driver.o: src/driver.cpp  src/RST.hpp
 	g++ $(CXXFLAGS) $(LDFLAGS) src/driver.cpp
-	mv driver.o src/
+	mv *.o bin/
 
-valgrind_driver: driver
-	valgrind --leak-check=full --read-var-info=yes --show-reachable=yes \
-	bin/driver $(DEBUG)
+setup:
+	mkdir bin
 
 clean:
-	rm -f src/*.o bin/* src/*.dSYM
+	rm -rf bin/
 
-new:
-	make clean
-	make all

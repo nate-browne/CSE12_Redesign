@@ -1,15 +1,16 @@
 #ifndef RST_HPP
 #define RST_HPP
 
-#include <algorithm>
-#include <exception>
-#include <functional>
-#include <random>
 #include <cstdio>
 #include <climits>
 #include <cstdlib>
-#include <iostream>
+
 #include <string>
+#include <random>
+#include <iostream>
+#include <algorithm>
+#include <stdexcept>
+#include <functional>
 
 template <class T>
 class RST {
