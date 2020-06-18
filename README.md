@@ -22,7 +22,7 @@ give me credit please and thanks.
 
 ### Required Materials
 1. Either `clang++` or `g++`
-2. `valgrind`/`leaks` (for macOS) and GDB/LLDB (for macOS)
+2. `valgrind`/GDB (for Linux) and `leaks`/LLDB (for macOS)
 
 There are Makefiles that are written to work natively with both macOS and with
 Linux distributions, so either of those should be used. Windows is **_not
