@@ -9,8 +9,7 @@ For this assignment, you have a "choose your own adventure" style approach. You 
 or you can do it with an array. The choice is completely yours to make!
 
 If you choose the tree, you can re-use your `"BST.hpp"` class from the last PA if you'd like to do some more
-practice with inheritance, or you can re-write a new tree. If you choose the array option, you're welcome to either
-use your `"vector.hpp"` from PA2, or you can use the STL's `<vector>` header.
+practice with inheritance, or you can re-write a new tree. Either way, you'll have to change one of the Makefile targets to include your new file. If you choose the array option, you must use the STL's [`<vector>`](https://en.cppreference.com/w/cpp/container/vector) header.
 
 All of the code you write should go in `heap.hpp`. Do **not** modify `driver.cpp` or `priority_queue.hpp`; if you do, your code **_will not_** work!
 
