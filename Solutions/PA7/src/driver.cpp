@@ -102,6 +102,7 @@ int main(int argc, char *argv[]) {
     std::string phone_file(argv[1]);
     pb = new PhoneBook(phone_file);
   } catch(std::invalid_argument & ex) {
+    std::cerr << ex.what() << std::endl;
     die("Problems with file I/O.");
   }
 
@@ -110,6 +111,7 @@ int main(int argc, char *argv[]) {
     sn = new SocialNetwork(net_file);
   } catch(std::invalid_argument & ex) {
     delete pb;
+    std::cerr << ex.what() << std::endl;
     die("Problems with file I/O.");
   }
 
