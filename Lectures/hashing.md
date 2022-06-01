@@ -1,16 +1,16 @@
 # Introduction to Hashing
 ### Chapter 5 of _Data Structures and Algorithm Analysis in C++_
 
-![hashmap](../images/hashtable.jpeg)
+![hashtable](../images/hashtable.jpeg)
 
 ## The Motivation
 So far, we've looked at lists and arrays for storage.
 
-We know that to find an arbitrary element in an unsorted array or list, it takes `O(n)` time on average where `n` is the number of elements.
+We know that to find an arbitrary element in an unsorted array or list, it takes $O(n)$ time on average where $n$ is the number of elements.
 
-Our goal is to go from `O(n)` to `O(1)` time average case. How can we do this?
+Our goal is to go from $O(n)$ to $O(1)$ time average case. How can we do this?
 
-The idea: take our data, run it through a function, use the output to help us store/locate our data. This gives us, ignoring the computation time for the function itself, a `O(1)` lookup and insert.
+The idea: take our data, run it through a function, use the output to help us store/locate our data. This gives us, ignoring the computation time for the function itself, a $O(1)$ lookup and insert.
 
 ## Hashing & Hash Functions
 This is the idea of turning some data into a number via a function, called a *hash function*.
@@ -19,18 +19,18 @@ This can be done for both cryptography (cryptographic hashing) or for speed (reg
 
 For non-cryptographic hash functions, there are two main properties:
 
-Given two values *k* and *l* and a hash function *h(x)*:
-1. **Property of Equality** (required): if *k* equals *l*, then *h(k)* equals *h(l)*.
-   * This property is required since without it, our function becomes useless for searching and puts us back to `O(n)` search.
-2. **Property of Inequality** *(optional)*: if *k* does not equal *l*, then *h(k)* does not equal *h(l)*
-   * This property guarantees unique hashes, and is nice to have since it leads to perfect optimal `O(1)` search and insertion.
+Given two values $k$ and $l$ and a hash function $h(x)$:
+1. **Property of Equality** (required): $$k = l \Rightarrow h(k) = h(l)$$.
+   * This property is required since without it, our function becomes useless for searching and puts us back to $O(n)$ search.
+2. **Property of Inequality** *(optional)*: $$k \neq l \Rightarrow h(k) \neq h(l)$$
+   * This property guarantees unique hashes, and is nice to have since it leads to perfect optimal $O(1)$ search and insertion.
 
 A function that has both of these properties is known as a **perfect hash function**, and are generally hard to come up with. 
 
-(For you mathematicians, a perfect hash function is also known as an injective (or one-to-one) function where each distinct element of the domain maps to one and only one element of the codomain).
+(For you mathematicians, a perfect hash function is also known as an *injective* (a.k.a. one-to-one) function where each distinct element of the domain maps to one and only one element of the codomain).
 
 <br><br>
-**Discuss**: Is the function *f(x) = 0* a hash function? Is it perfect?
+**Discuss**: Is the function $f(x) = 0$ a hash function? Is it perfect?
 <br><br>
 
 **Answer**: *Yes*! It's just not a useful hash function. It also isn't a perfect hash function.
@@ -40,7 +40,7 @@ If you check both properties, you'll see that property 1 is satisfied (making it
 For practical applications, a perfect hash function may not compute any colliding elements, but we're still limited by one main factor: **_memory_**. We bound by the amount of memory, so we'll need to do a modulo (%) to stay in bounds.
 
 This can lead to interesting issues with implementation regarding the tables. If our hash function doesn't distribute well,
-we can run into problems with distribution leading to a ton of collisions. One mitigation strategy is using prime numbers for our table sizes (why is this?), while another is making sure our functions are good enough at randomly distributing data. However, this still isn't foolproof.
+we can run into problems with distribution leading to a ton of collisions. One mitigation strategy is using prime numbers for our table sizes (why would this help?), while another is making sure our functions are good enough at randomly distributing data. However, this still isn't foolproof.
 
 This means that **even with a perfect hash function, we will still have collisions in practice**. How do we deal with this?
 
@@ -80,21 +80,21 @@ We'll discuss 4 collision resolution schemes:
 ### Side Note: Performance
 One thing we've seen with all above strategies is that they all become much worse performance wise if the table gets full. This is because as the table fills, collisions become more and more likely due to the modulo operation.
 
-As a result, a common strategy is to resize the table and rehash the elements once a certain threshold is reached to maintain optimal performance. The ratio used to determine this is called **load factor** (# of elements/# of spots).
+As a result, a common strategy is to resize the table and rehash the elements once a certain threshold is reached to maintain optimal performance. The ratio used to determine this is called **load factor**: $$\text{load factor} = \frac{\text{number of elements}}{\text{number of spots}}$$
 
-A common load factor used that straddles the line between costly rehashes and costly lookups is 0.75. The lower the number, the more often the rehashes. The higher, the more often the collisions.
+A common load factor used that straddles the line between costly rehashes and costly lookups is $0.75$. The lower the number, the more often the rehashes. The higher, the more often the collisions.
 
 ## ADTs and Data Structures
-The concept of hashing allows for easy `O(1)` runtimes for the **Set** and **Map** ADTs.
+The concept of hashing allows for easy $O(1)$ runtimes for the **Set** and **Map** ADTs.
 
-A Set is an abstraction of the mathematical concept, where each item is unique.
+A **Set** is an abstraction of the mathematical concept, where each item is unique.
 
-A Map is an abstraction where key-value pairs are held, where each key must be unique. The key is used to "map" to its corresponding value.
+A **Map** is an abstraction where key-value pairs are held, where each key must be unique. The key is used to "map" to its corresponding value.
 
-Sets can be implemented with a Hashtable data structure, and Maps can be implemented with a Hashmap data structure.
+Sets can be implemented with a hashtable data structure, and Maps can be implemented with a hashmap data structure.
 
 Most languages feature support for these structures built into their libraries:
-* Python: dictionaries and sets
+* Python: `sets` and `dictionaries`
 * Java: `java.util.HashSet` and `java.util.HashMap`
 * C++: `std::unordered_set` and `std::unordered_map`
 

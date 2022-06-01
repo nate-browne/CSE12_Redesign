@@ -129,7 +129,7 @@ How about this input (in order):
 
 1. What is the shape of this tree <!-- correct answer: perfectly balanced -->
 
-**In a naïve implementation, the tree can get so skewed due to insertion order that we end up with horrible runtimes (`O(n)`) again**.
+**In a naïve implementation, the tree can get so skewed due to insertion order that we end up with horrible runtimes ($O(n)$) again**.
 ## Options To Resolve
 The key here is that we need to verify that our trees stay balanced throughout. The easiest way to handle this is to **rebalance** the tree as we insert to maintain some standard.
 
@@ -159,7 +159,7 @@ Which of these is not a valid AVL tree?
       * used if the tree is *left-heavy*, but the right subtree is *right-heavy*.
       * Perform a left rotate on the right subtree, then a right rotate on the out of balance node.
       * ![doubleright](../images/doubleright.png)
-* We perform these rotations as needed when inserting and removing nodes to guarantee that our tree will remain as balanced as possible, ensuring `O(log n)` time for all three main operations.
+* We perform these rotations as needed when inserting and removing nodes to guarantee that our tree will remain as balanced as possible, ensuring $O(\log (n))$ time for all three main operations.
 
 <br><br>
 Try doing AVL insertion for [1,7] in that order. What shape do you get?

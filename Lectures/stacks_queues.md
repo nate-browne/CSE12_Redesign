@@ -20,7 +20,7 @@ Firstly, we'll talk about stacks.
 
 * What: ADT that supports three basic operations: `push`, `pop`, and `top/peek`
 
-* Why: Provides constant time O(1) access to *only* the most recently added element. Allows us to create a history of things in order that they were seen. Follows ordering of __*Last in, First Out*__ (LIFO).
+* Why: Provides constant time $O(1)$ access to *only* the most recently added element. Allows us to create a history of things in order that they were seen. Follows ordering of __*Last in, First Out*__ (LIFO).
 
 ### Use Cases
 
@@ -44,7 +44,7 @@ How would you approach this question? Discuss
 
 Solution:
 
-Create a stack. Read characters in. If you see a '(', '[', or a '{', push it onto the stack. When you see one of the closing ones, pop off of the stack and check if you have a matching pair. Once you're done reading the string, check if your stack is empty and return `true` if so. This runs in `O(n)` time where `n` is the length of the string.
+Create a stack. Read characters in. If you see a '(', '[', or a '{', push it onto the stack. When you see one of the closing ones, pop off of the stack and check if you have a matching pair. Once you're done reading the string, check if your stack is empty and return `true` if so. This runs in $O(n)$ time where `n` is the length of the string.
 
 #### Infix to Postfix
 

@@ -27,9 +27,9 @@ A **binary search tree** (BST) is a binary tree that has a couple extra constrai
 
 ![binary search tree](../images/binarysearchtree.jpeg)
 
-Binary search trees are good candidates for implementing sets and maps, and in an optimally balanced tree, we have guaranteed `O(log n)` time operations (lookup, insert, remove), where `n` is the number of elements.
+Binary search trees are good candidates for implementing sets and maps, and in an optimally balanced tree, we have guaranteed $O(\log (n))$ time operations (lookup, insert, remove), where $n$ is the number of elements.
 
-However, if the tree is unbalanced enough, we end up with a sorted linked list and regress back to `O(n)` time operations where `n` is the number of elements.
+However, if the tree is unbalanced enough, we end up with a sorted linked list and regress back to $O(n)$ time operations where $n$ is the number of elements.
 
 ## Using the Tree: Traversals
 In order to gain value from the sorted property, we must be able to use the tree in a way that takes advantage of its properties.

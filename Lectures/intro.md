@@ -132,32 +132,32 @@ programming language used to implement the algo, quality of the operating system
 Solution: Quantify our algorithm speed and space in terms of *abstract operations*
 
 *Note: We won't get into the details (I'll leave that for CSE 21 and 101) but this will be a quick and dirty intro.*
-*In general, we will talk about the average case upper bound (aka big O), but other measures exist.*
+*In general, we will talk about the average case upper bound (aka big $O$), but other measures exist.*
 
 Here's a table to build intuition about kinds of runtime:
 
-Adjective | O-notation | Sample operation
+Adjective | $O$-notation | Sample operation
 :---: | :---: | :---:
-constant | O(1) | adding two `int` values
-logarithmic | O(log n) | binary search
-linear | O(n) | iterating through an array
-linearithmic | O(n log n) | merge sort
-quadratic | O(n<sup>2</sup>) | bubble sort
-cubic | O(n<sup>3</sup>) | naïve matrix multiplication
-exponential | O(x<sup>n</sup>), for x > 1 | naïve Fibonacci is ~2<sup>n</sup>
-just no | O(n<sup>n</sup>) | ??? I don't even have an example
+constant | $O(1)$ | adding two `int` values
+logarithmic | $O(\log(n))$ | binary search
+linear | $O(n)$ | iterating through an array
+linearithmic | $O(n\log (n))$ | merge sort
+quadratic | $O(n^2)$ | bubble sort
+cubic | $O(n^3)$ | naïve matrix multiplication
+exponential | $O(x^n)$, for $x \gt 1$ | naïve Fibonacci is ~2<sup>n</sup>
+just no | $O(n^n)$ | ??? I don't even have an example
 
 Here's a table to build intuition in concrete units of time:
 
 F(n) | n = 256 | n = 1024 | n = 1,048,576
 :---: | :---: | :---: | :---:
-1 | 1 µsec | 1 µsec | 1 µsec
-log<sub>2</sub>n | 8 µsec | 10 µsec | 20 µsec
-n | 256 µsec | 1.02 ms | 1.05 sec
-n log<sub>2</sub>n | 2.05 ms | 10.2 ms | 21 sec
-n<sup>2</sup> | 65.5 ms | 1.05 sec | 1.8 weeks
-n<sup>3</sup> | 16.8 sec | 17.9 min | 36,559 years
-2<sup>n</sup> | 3.7x10<sup>63</sup> years | 5.7x10<sup>294</sup> years | 2.1x10<sup>315639</sup> years
+$1$ | 1 µsec | 1 µsec | 1 µsec
+$\log_2n$ | 8 µsec | 10 µsec | 20 µsec
+$n$ | 256 µsec | 1.02 ms | 1.05 sec
+$n\log_2n$ | 2.05 ms | 10.2 ms | 21 sec
+$n^2$| 65.5 ms | 1.05 sec | 1.8 weeks
+$n^3$ | 16.8 sec | 17.9 min | 36,559 years
+$2^n$ | $3.7\times10^{63}$ years | $5.7\times10^{294}$ years | $2.1\times10^{315,639}$ years
 
 Calculating Runtime:
 1. Sum up the operation in terms of how much time each step takes
@@ -183,7 +183,7 @@ Third line does integer addition, which is constant time.
 Fifth line prints to the screen, which we'll say is constant time.
 Last line returns the value, another constant time operation.
 
-Total runtime: O(1) + O(n) + O(1) + O(1) + O(1) = O(n) = linear time
+Total runtime: $O(1)$ + $O(n)$ + $O(1)$ + $O(1)$ + $O(1)$ = $O(n)$ = linear time
 
 What about this one?
 ```cpp
@@ -199,14 +199,14 @@ int errogate(int n) {
   return sum;
 }
 ```
-Total runtime: O(1) + O(n) + O(n) + O(1) + O(1) + O(1) = O(2n) = O(n) = linear time
+Total runtime: $O(1)$ + $O(n)$ + $O(n)$ + $O(1)$ + $O(1)$ + $O(1)$ = $O(2n)$ = $O(n)$ = linear time
 
-So, do problems with the same big-O runtime take the same amount of time?
+So, do problems with the same big-O runtime take the same amount of time? <!-- answer: not necessarily! -->
 
 Try this one on your own:
 ```cpp
 int mystery(int n) {
-  int count;
+  int count = 0;
   for(int i = 1; i <= n; i *= 2) {
     for(int j = 0; j < n; j++) {
       count++;
@@ -216,4 +216,4 @@ int mystery(int n) {
 }
 ```
 [back](../lectures.md)
-<!--- note: answer should be O(n log n) --->
+<!-- note: answer should be $O(n \log n)$ -->

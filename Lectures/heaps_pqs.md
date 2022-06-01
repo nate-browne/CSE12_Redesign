@@ -23,18 +23,18 @@ A **priority queue** is an ADT that supports, at a minimum, *push*, *top*, and *
 
 The goal is that you are able to top the element with the highest priority in constant time, but you make no guarantees about the inherent ordering of the rest of the elements.
 
-We *could* technically implement this via a sorted linked list, but this gives us `O(n)` insertion time for `O(1)` pop and top time. While this seems okay, we'd like to be able to get better insertion time (at the cost of some pop time).
+We *could* technically implement this via a sorted linked list, but this gives us $O(n)$ insertion time for $O(1)$ pop and top time. While this seems okay, we'd like to be able to get better insertion time (at the cost of some pop time).
 
-A better option is to used a BST (or a balanced BST). The former gives us `O(log n)` average for all operations, while the latter gives us `O(log n)` worst case for all operations.
-This is fine, and it works, but we want to get back to `O(1)` pop time while keeping `O(log n)` time for all other operations.
+A better option is to used a BST (or a balanced BST). The former gives us $O(\log n)$ average for all operations, while the latter gives us $O(\log n)$ worst case for all operations.
+This is fine, and it works, but we want to get back to $O(1)$ pop time while keeping $O(\log n)$ time for all other operations.
 
 ## Implementing a Priority Queue: Heap Data Structure
 
 Often, priority queues are implemented via a **heap** data structure.
 
-*Note: this is not the same "heap" as the area of the C++ runtime. You'll learn about that in CSE 30.*
+*Note: this is not the same "heap" as the area of the C/C++/other languages' runtime environments. You'll learn about that in CSE 30.*
 
-*Note: Though other kinds of heaps exist, we're only talking here about binary heaps. If you'd like, you can learn about [fibonacci heaps and binomial heaps from this video](https://www.youtube.com/watch?v=gxp_FrgTkQI).*
+*Another note: Though other kinds of heaps exist, we're only talking here about binary heaps. If you'd like, you can learn about [fibonacci heaps and binomial heaps from this video](https://www.youtube.com/watch?v=gxp_FrgTkQI).*
 
 A *binary heap* is a binary tree with a couple extra properties:
 1. **Full Heap Property**
@@ -60,18 +60,18 @@ Is the following heap a min heap, or a max heap?
 
 Because of property 1, implementing a heap via an array is actually pretty easy to do. We can very easily map each index of an array to a child of a node via a few formulas. The book doesn't use index 0 of the array, so their formulas will be different by a factor of 1.
 
-For any index *i*:
+For any index $i$:
 * To find the parent
-  * using index 0: **(i - 1) / 2** (integer division!)
-  * not using index 0: **i / 2** (integer division!)
+  * using index 0: $(i - 1) / 2$ (**_integer division!_**)
+  * not using index 0: $i / 2$ (**_integer division!_**)
 * To find the left child
-  * using index 0: **(2 * i) + 1**
-  * not using index 0: **(2 * i) + 2**
+  * using index 0: $(2 \times i) + 1$
+  * not using index 0: $(2 \times i) + 2$
 * To find the right child
-  * using index 0: **(2 * i) + 2**
-  * not using index 0: **(2 * i) + 1**
+  * using index 0: $(2 \times i) + 2$
+  * not using index 0: $(2 \times i) + 1$
 
-For all formulas, unsigned integer types should be used to verify that values below 0 are never indexed into.
+#### For all formulas, unsigned integer types should be used to verify that values below 0 are never indexed into.
 
 Here's an example of using an array:
 ![array heap](../images/binaryheapwarrayrepr.png)
