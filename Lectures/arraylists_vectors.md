@@ -157,10 +157,10 @@ In this class, we'll (mostly) discuss Abstract Data Types (ADTs)
 * An ADT outlines a set of behaviors that should be expected, but not how to implement them.
 * Implementation can vary wildly, providing the behavior is as expected.
 
-A data structure is a set implementation.
+A data structure is an implementation.
 * They are defined in terms of how they are implemented, not behavior.
 
-Think of ADTs as an Interface, and data structures as a class.
+Think of ADTs as an interface, and data structures as a class.
 
 Example data structures:
 * Arrays, LinkedLists, ArrayLists...
@@ -176,7 +176,7 @@ Now back to the main content.
 * The C++ equivalent (that you will be making in the assignment) is called a Vector ([`std::vector`](http://www.cplusplus.com/reference/vector/vector/?kw=vector))
 * By default, Java ArrayLists can hold elements that are not all the same type, but C++ Vectors cannot.
 
-  *side note: Java also has Vectors [`java.util.Vector`](https://docs.oracle.com/javase/8/docs/api/java/util/Vector.html) and the difference is that the Java Vectors are thread-safe while vectors aren't*
+  *side note: Java also has Vectors [`java.util.Vector`](https://docs.oracle.com/javase/8/docs/api/java/util/Vector.html) and the difference is that the Java Vectors are thread-safe while ArrayLists aren't*
 
 * The main functions implemented are: `size` (returns the number of elements), `empty`, `operator[]/at` (access an element),
   `front` (access first element), `back` (access last element), `push_back` (add to end), `pop_back` (remove from end), and
@@ -186,17 +186,17 @@ Now back to the main content.
 
 What's the runtime of...
 
-`size`? <!--- runtime of size is O(1) --->
+`size`? <!-- runtime of size is $O(1)$ -->
 
-`empty`? <!--- runtime of empty is O(1) --->
+`empty`? <!-- runtime of empty is $O(1)$ -->
 
-`operator[]/at` and `front` and `back`? <!--- runtime of this is also O(1) --->
+`operator[]/at` and `front` and `back`? <!-- runtime of this is also $O(1)$ -->
 
-`pop_back`? <!--- runtime of this is O(1) --->
+`pop_back`? <!-- runtime of this is $O(1)$ -->
 
-`insert`? <!--- Runtime is linear on the number of elements inserted + number of elements after position --->
+`insert`? <!-- Runtime is linear on the number of elements inserted + number of elements after position -->
 
-`push_back`? <!--- This one they won't get; runtime is O(1) amortized time where a reallocation is linear time up to the size --->
+`push_back`? <!-- This one they won't get; runtime is $O(1)$ amortized time where a reallocation is linear time up to the size -->
 
 
 To fully understand the runtime of `push_back`, wait until an advanced algorithms class where *amortization* is discussed. We won't
