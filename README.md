@@ -59,13 +59,11 @@ would stick to either:
 
 * [Vim/gVim](https://www.vim.org/)
 * [Visual Studio Code](https://code.visualstudio.com/) (my personal recommendation)
-* [Atom](https://atom.io/)
 
-The best two options, in my opinion, are vscode and Atom due to their plugin
-support. All you'll need is an appropriate C/C++ plugin (like [this one](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) for
-vscode or [this one](http://atom-packages.directory/package/atom-clang/) for Atom) and you're set.
+The best option, in my opinion, is vscode due to its plugin
+support. All you'll need is an appropriate C/C++ plugin like [this one](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) and you're set.
 
 
 ### Contact
-Send me an email at nbrowne [at] ucsd [dot] edu or at npcompletenate [at] protonmail
-[dot] com if you have any suggestions/fixes/other stuff like that.
+Send me an email at npcompletenate [at] protonmail [dot] com if you have any suggestions/fixes/other stuff like that.
+You can also [create an issue!](https://github.com/nate-browne/CSE12_Redesign/issues/new)
