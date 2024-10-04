@@ -35,7 +35,7 @@ Here is a step-by-step guide to using libraries:
    * Are you trying to build a web app? Do you need to do something involving multithreading?
    * By asking yourself what your objective is, you can better search for the library you need.
 2. **Search for a library that matches what you want**
-   * Github, Stack Overflow, forum posts, and more can help you track down the right library for your project.
+   * GitHub, Stack Overflow, forum posts, and more can help you track down the right library for your project.
 3. **Figure out how to install**
    * Does your library come preinstalled? Do you need to use a package manager (e.g. `pip`, `cargo`, `homebrew`, etc)?
    * You cannot use a library unless you know how to get it on your machine!
