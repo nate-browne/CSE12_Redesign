@@ -5,7 +5,7 @@ typedef std::tuple<std::string, std::string> StringTuple;
 // utility functions
 static std::vector<StringTuple> *parse_file(const std::string & filename) {
   std::ifstream in;
-  auto *retval = new std::vector<std::tuple<std::string, std::string>>();
+  std::vector<StringTuple>* retval = new std::vector<StringTuple>();
   std::string line;
 
   in.open(filename);
@@ -74,8 +74,8 @@ static std::vector<std::string> *parse_network(const std::string & filename) {
 }
 
 PhoneBook::PhoneBook(const std::string & filename) {
-  listings = new std::unordered_map<std::string, std::string>();
-  listings->max_load_factor(0.75); // default is 1.0 (bad)
+  this->listings = new std::unordered_map<std::string, std::string>();
+  this->listings->max_load_factor(0.75); // default is 1.0 (bad)
   this->build_listings(filename);
 }
 
@@ -184,8 +184,9 @@ bool SocialNetwork::are_connected(const std::string & name_1, const std::string
     if(curr->get_name() == name_2) return true;
 
     for(std::string nm : *curr->get_friends_list()) {
-      if(!visited.count(this->friend_map->at(nm)))
+      if(!visited.count(this->friend_map->at(nm))) {
         q.push(this->friend_map->at(nm));
+      }
     }
   }
   return false;
