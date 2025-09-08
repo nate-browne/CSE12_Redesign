@@ -22,10 +22,11 @@ endif
 endif
 
 new:
-	make prog
+	@make clean
+	@make prog
 
 prog: build
-	bin/driver
+	@bin/driver
 
 memcheck: build
 	$(LEAKER) bin/driver $(MAX)
@@ -33,17 +34,20 @@ memcheck: build
 debug: build
 	$(DEBUGGER) bin/driver
 
-build: clean setup driver.o
-	g++ $(LINKFLAGS) -o driver $(LDFLAGS) bin/driver.o
-	mv driver bin/
+build: setup driver.o
+	@g++ $(LINKFLAGS) -o driver $(LDFLAGS) bin/driver.o
+	@echo "Compilation finished! Moving program to `bin`..."
+	@mv driver bin/
 
 driver.o: src/driver.cpp src/vector.hpp src/utils.hpp
-	g++ $(CXXFLAGS) $(LDFLAGS) src/driver.cpp
-	mv *.o bin/
+	@g++ $(CXXFLAGS) $(LDFLAGS) src/driver.cpp
+	@mv *.o bin/
 
 setup:
-	mkdir bin
+	@mkdir bin
 
 clean:
-	rm -rf bin/
+	@echo "Cleaning up..."
+	@rm -rf bin/
+	@echo "Clean."
 

@@ -11,24 +11,27 @@ else
 endif
 
 new:
-	make clean
-	make run
+	@make clean
+	@make run
 
 run: test
-	bin/test_runner
+	@bin/test_runner
 
 test: setup check.o
-	g++ $(LINKFLAGS) -o test_runner $(LDFLAGS) bin/check.o bin/pa1.o
-	mv test_runner bin/
+	@g++ $(LINKFLAGS) -o test_runner $(LDFLAGS) bin/check.o bin/pa1.o
+	@echo "Compilation finished! Moving program to `bin`..."
+	@mv test_runner bin/
 
 setup:
-	mkdir bin
+	@mkdir bin
 
 check.o: src/pa1.cpp src/pa1.hpp src/util.hpp test/check.cpp
-	g++ $(CXXFLAGS) $(LDFLAGS) src/pa1.cpp
-	g++ $(CXXFLAGS) $(LDFLAGS) test/check.cpp
-	mv *.o bin/
+	@g++ $(CXXFLAGS) $(LDFLAGS) src/pa1.cpp
+	@g++ $(CXXFLAGS) $(LDFLAGS) test/check.cpp
+	@mv *.o bin/
 
 clean:
-	rm -rf bin/
+	@echo "Cleaning up..."
+	@rm -rf bin/
+	@echo "Clean."
 
