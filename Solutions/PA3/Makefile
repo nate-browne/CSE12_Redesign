@@ -1,7 +1,6 @@
 CXXFLAGS=
 LDFLAGS=
 LINKFLAGS=-std=c++11 -Wall -pedantic -Wextra
-LEAKER=
 
 ifeq ($(type),opt)
  	CXXFLAGS=-O3 -Wall -pedantic -Wextra -std=c++11 -c
@@ -23,29 +22,32 @@ endif
 endif
 
 new:
-	make prog
+	@make clean
+	@make prog
 
 debug: build
 	$(DEBUGGER) bin/driver
 
 memcheck: build
-	MallocStackLogging=1
-	$(LEAKER) bin/driver
-	unset MallocStackLogging
+	$(LEAKER) bin/driver $(MAX)
 
 prog: build
-	bin/driver
+	@bin/driver
 
-build: clean setup driver.o
-	g++ $(LINKFLAGS) -o driver $(LDFLAGS) bin/driver.o
-	mv driver bin/
+build: setup driver.o
+	@g++ $(LINKFLAGS) -o driver $(LDFLAGS) bin/driver.o
+	@echo "Compilation finished! Moving program to `bin`..."
+	@mv driver bin/
 
 driver.o: src/driver.cpp src/queue.hpp src/stack.hpp src/vector.hpp src/utils.hpp
-	g++ $(CXXFLAGS) $(LDFLAGS) src/driver.cpp
-	mv *.o bin/
+	@g++ $(CXXFLAGS) $(LDFLAGS) src/driver.cpp
+	@mv *.o bin/
 
 setup:
-	mkdir bin
+	@mkdir bin
 
 clean:
-	rm -rf bin/
+	@echo "Cleaning up..."
+	@rm -rf bin/
+	@echo "Clean."
+
